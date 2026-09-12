@@ -1,3 +1,4 @@
+import CopyButton from './CopyButton';
 import { getOpenOrders } from '../lib/shopify';
 
 export const dynamic = 'force-dynamic';
@@ -49,45 +50,54 @@ export default async function Home() {
         </section>
       ) : (
         <section className="orders">
-          {orders.map((order) => (
-            <article className="orderCard" key={order.id}>
-              <div className="orderHead">
-                <div>
-                  <p className="muted">ORDER</p>
-                  <h2>{order.name}</h2>
-                </div>
-                <span className="badge">{order.financialStatus}</span>
-              </div>
+          {orders.map((order) => {
+            const customerDetails = [
+              order.customerName,
+              order.phone,
+              order.address,
+            ].filter(Boolean).join('\n');
 
-              <div className="customer">
-                <strong>{order.customerName}</strong>
-                <p>{order.address}</p>
-                {order.phone && <p>{order.phone}</p>}
-              </div>
-
-              <div className="items">
-                {order.lines.map((line) => (
-                  <div className="item" key={line.id}>
-                    <div className="itemTop">
-                      <div>
-                        <strong>{line.name}</strong>
-                        <p className="muted">Qty {line.quantity}{line.shopeeVariant ? ` · ${line.shopeeVariant}` : ''}</p>
-                      </div>
-                      {line.supplierCost && <span>{money(line.supplierCost)}</span>}
-                    </div>
-
-                    {line.shopeeUrl ? (
-                      <a className="buyButton" href={line.shopeeUrl} target="_blank" rel="noreferrer">
-                        Open Shopee Supplier
-                      </a>
-                    ) : (
-                      <div className="missing">Supplier link not assigned yet</div>
-                    )}
+            return (
+              <article className="orderCard" key={order.id}>
+                <div className="orderHead">
+                  <div>
+                    <p className="muted">ORDER</p>
+                    <h2>{order.name}</h2>
                   </div>
-                ))}
-              </div>
-            </article>
-          ))}
+                  <span className="badge">{order.financialStatus}</span>
+                </div>
+
+                <div className="customer">
+                  <strong>{order.customerName}</strong>
+                  <p>{order.address}</p>
+                  {order.phone && <p>{order.phone}</p>}
+                  <CopyButton text={customerDetails} />
+                </div>
+
+                <div className="items">
+                  {order.lines.map((line) => (
+                    <div className="item" key={line.id}>
+                      <div className="itemTop">
+                        <div>
+                          <strong>{line.name}</strong>
+                          <p className="muted">Qty {line.quantity}{line.shopeeVariant ? ` · ${line.shopeeVariant}` : ''}</p>
+                        </div>
+                        {line.supplierCost && <span>{money(line.supplierCost)}</span>}
+                      </div>
+
+                      {line.shopeeUrl ? (
+                        <a className="buyButton" href={line.shopeeUrl} target="_blank" rel="noreferrer">
+                          Open Shopee Supplier
+                        </a>
+                      ) : (
+                        <div className="missing">Supplier link not assigned yet</div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </article>
+            );
+          })}
         </section>
       )}
 
