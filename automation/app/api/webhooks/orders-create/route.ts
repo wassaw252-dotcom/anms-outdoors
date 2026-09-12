@@ -12,8 +12,8 @@ function validHmac(rawBody: string, received: string | null, secret: string) {
 }
 
 export async function POST(request: NextRequest) {
-  const secret = process.env.SHOPIFY_WEBHOOK_SECRET;
-  if (!secret) return NextResponse.json({ error: 'Webhook secret not configured' }, { status: 503 });
+  const secret = process.env.SHOPIFY_CLIENT_SECRET;
+  if (!secret) return NextResponse.json({ error: 'Shopify client secret not configured' }, { status: 503 });
 
   const rawBody = await request.text();
   const hmac = request.headers.get('x-shopify-hmac-sha256');
