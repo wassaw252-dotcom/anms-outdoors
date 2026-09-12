@@ -29,9 +29,61 @@ function required(name: string) {
   return value;
 }
 
+function shopDomain() {
+  return required('SHOPIFY_SHOP_DOMAIN')
+    .replace(/^https?:\/\//, '')
+    .replace(/\/$/, '');
+}
+
+type CachedToken = {
+  value: string;
+  expiresAt: number;
+};
+
+let cachedToken: CachedToken | null = null;
+
+async function getAdminAccessToken() {
+  if (cachedToken && Date.now() < cachedToken.expiresAt) {
+    return cachedToken.value;
+  }
+
+  const shop = shopDomain();
+  const clientId = required('SHOPIFY_CLIENT_ID');
+  const clientSecret = required('SHOPIFY_CLIENT_SECRET');
+
+  const body = new URLSearchParams({
+    grant_type: 'client_credentials',
+    client_id: clientId,
+    client_secret: clientSecret,
+  });
+
+  const response = await fetch(`https://${shop}/admin/oauth/access_token`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    body,
+    cache: 'no-store',
+  });
+
+  const json = await response.json();
+
+  if (!response.ok || !json.access_token) {
+    throw new Error(`Unable to get Shopify access token: ${JSON.stringify(json)}`);
+  }
+
+  const expiresIn = Number(json.expires_in || 86399);
+  cachedToken = {
+    value: json.access_token,
+    expiresAt: Date.now() + Math.max(expiresIn - 300, 60) * 1000,
+  };
+
+  return cachedToken.value;
+}
+
 export async function shopifyGraphQL<T>(query: string, variables: Record<string, unknown> = {}): Promise<T> {
-  const shop = required('SHOPIFY_SHOP_DOMAIN').replace(/^https?:\/\//, '').replace(/\/$/, '');
-  const token = required('SHOPIFY_ADMIN_ACCESS_TOKEN');
+  const shop = shopDomain();
+  const token = await getAdminAccessToken();
 
   const response = await fetch(`https://${shop}/admin/api/${API_VERSION}/graphql.json`, {
     method: 'POST',
