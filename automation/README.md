@@ -8,6 +8,7 @@ This app is intentionally isolated in the `fulfillment-automation` branch and th
 - Shows customer shipping details on a mobile-friendly dashboard.
 - Reads Shopee supplier metadata from Shopify variant metafields.
 - Gives a direct `Open Shopee Supplier` button for each ordered variant.
+- Provides one-tap copy for customer name, phone number, and delivery address.
 - Receives and verifies Shopify `orders/create` webhooks for the next notification stage.
 - Protects the dashboard with HTTP Basic Auth.
 
@@ -19,6 +20,8 @@ Namespace: `anms`
 - `shopee_variant` — supplier variation text
 - `supplier_cost` — supplier cost in MYR
 
+These fields are Admin API readable/writable but are not exposed to Storefront or Customer Account APIs.
+
 ## Required Shopify app scopes
 
 For the direct Admin API setup used by this v1 dashboard:
@@ -26,13 +29,15 @@ For the direct Admin API setup used by this v1 dashboard:
 - `read_orders`
 - `read_products`
 
-Create a Shopify custom app for the store, install it, then copy the Admin API access token into the deployment environment as `SHOPIFY_ADMIN_ACCESS_TOKEN`.
+Because the dashboard displays customer shipping name, phone, and address, the app must also be allowed to access the relevant protected customer/order data in Shopify.
+
+Create/install a Shopify custom app for the store, then copy its Admin API access token into the deployment environment as `SHOPIFY_ADMIN_ACCESS_TOKEN`.
 
 ## Environment
 
 Copy `.env.example` to `.env.local` for local development, or configure the same values in Vercel.
 
-Never commit the real Admin API token, webhook secret, or dashboard password.
+Never commit the real Admin API token, app client secret, or dashboard password.
 
 ## Vercel
 
@@ -48,7 +53,9 @@ After deployment, register Shopify `orders/create` to:
 
 `https://YOUR-AUTOMATION-DOMAIN/api/webhooks/orders-create`
 
-Use the app/webhook signing secret as `SHOPIFY_WEBHOOK_SECRET`.
+Set `SHOPIFY_WEBHOOK_SECRET` to the Shopify app secret used to verify the `X-Shopify-Hmac-SHA256` signature for the webhook request.
+
+The webhook handler intentionally does not log customer addresses or phone numbers.
 
 ## Current safety boundary
 
