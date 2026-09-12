@@ -24,28 +24,37 @@ These fields are Admin API readable/writable but are not exposed to Storefront o
 
 ## Required Shopify app scopes
 
-For the direct Admin API setup used by this v1 dashboard:
+For the Admin API setup used by this v1 dashboard:
 
 - `read_orders`
 - `read_products`
 
 Because the dashboard displays customer shipping name, phone, and address, the app must also be allowed to access the relevant protected customer/order data in Shopify.
 
-Create/install a Shopify custom app for the store, then copy its Admin API access token into the deployment environment as `SHOPIFY_ADMIN_ACCESS_TOKEN`.
+For Shopify Dev Dashboard apps created in 2026, do not paste a static Admin API token into this project. Create and install the app in the Shopify Dev Dashboard, then copy its Client ID and Client Secret into the deployment environment. The server exchanges those credentials for a short-lived Admin API access token and refreshes it automatically.
 
 ## Environment
 
-Copy `.env.example` to `.env.local` for local development, or configure the same values in Vercel.
+Configure these values in Vercel or `.env.local`:
 
-Never commit the real Admin API token, app client secret, or dashboard password.
+- `SHOPIFY_SHOP_DOMAIN=tvrj5j-ae.myshopify.com`
+- `SHOPIFY_CLIENT_ID=...`
+- `SHOPIFY_CLIENT_SECRET=...`
+- `DASHBOARD_USER=...`
+- `DASHBOARD_PASSWORD=...`
+
+Never commit the real Client Secret or dashboard password.
 
 ## Vercel
 
-Deploy this branch as a separate Vercel project with Root Directory set to:
+Deploy this branch as a separate Vercel project with:
 
-`automation`
+- Git repository: `wassaw252-dotcom/anms-outdoors`
+- Production branch: `fulfillment-automation`
+- Root Directory: `automation`
+- Framework: Next.js
 
-The Shopify theme project must continue using the `main` branch.
+The Shopify storefront/theme project must continue using the `main` branch.
 
 ## Webhook
 
@@ -53,7 +62,7 @@ After deployment, register Shopify `orders/create` to:
 
 `https://YOUR-AUTOMATION-DOMAIN/api/webhooks/orders-create`
 
-Set `SHOPIFY_WEBHOOK_SECRET` to the Shopify app secret used to verify the `X-Shopify-Hmac-SHA256` signature for the webhook request.
+The webhook signature is verified using `SHOPIFY_CLIENT_SECRET`.
 
 The webhook handler intentionally does not log customer addresses or phone numbers.
 
