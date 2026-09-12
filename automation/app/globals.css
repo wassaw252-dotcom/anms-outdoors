@@ -29,6 +29,8 @@ h2 { margin:0; }
 .badge { font-size:11px; font-weight:800; padding:7px 10px; border-radius:999px; background:#232a22; color:var(--accent); }
 .customer { padding:14px 0; border-bottom:1px solid var(--line); }
 .customer p { color:var(--muted); margin:5px 0 0; font-size:13px; line-height:1.45; }
+.copyButton { width:100%; margin-top:12px; border:1px solid var(--line); background:#20261f; color:var(--text); padding:11px 12px; border-radius:11px; font:inherit; font-size:13px; font-weight:800; cursor:pointer; }
+.copyButton:active { transform:translateY(1px); }
 .items { display:grid; gap:10px; padding-top:14px; }
 .item { background:#0f120f; border:1px solid #232923; border-radius:14px; padding:13px; }
 .itemTop { display:flex; align-items:flex-start; justify-content:space-between; gap:12px; }
