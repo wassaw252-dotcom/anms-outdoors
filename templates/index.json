@@ -12,14 +12,6 @@
       "type": "home-categories",
       "settings": {}
     },
-    "featured": {
-      "type": "featured-gear",
-      "settings": {
-        "collection": "all-gear",
-        "heading": "Featured Gear",
-        "limit": 4
-      }
-    },
     "camp": {
       "type": "camp-pathways",
       "settings": {},
@@ -63,19 +55,13 @@
     "connection": {
       "type": "brand-story",
       "settings": {}
-    },
-    "explore": {
-      "type": "explore-teaser",
-      "settings": {}
     }
   },
   "order": [
     "entrance",
     "story",
     "categories",
-    "featured",
     "camp",
-    "connection",
-    "explore"
+    "connection"
   ]
 }
