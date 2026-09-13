@@ -1,0 +1,12 @@
+{% doc %}
+  Real Shopify product card.
+  @param {product} product - Product to render
+{% enddoc %}
+<article class="product-card">
+<div class="product-card-media"><a href="{{ product.url }}" tabindex="-1" aria-hidden="true">{% if product.featured_image %}{{ product.featured_image | image_url: width: 800 | image_tag: widths: '180, 360, 540, 800', sizes: '(min-width: 990px) 24vw, 46vw', loading: 'lazy', alt: product.featured_image.alt }}{% else %}<span class="image-empty">{% render 'icon', name: 'tent' %}<span>{{ 'product.image_pending' | t }}</span></span>{% endif %}</a>
+{% if product.compare_at_price > product.price %}<span class="badge">{{ 'product.sale' | t }}</span>{% elsif product.tags contains 'new-arrival' %}<span class="badge">{{ 'product.new' | t }}</span>{% endif %}
+<button class="icon-button save-button" data-save="{{ product.handle }}" data-title="{{ product.title | escape }}" aria-label="{{ 'saved.save' | t: title: product.title | escape }}" aria-pressed="false">{% render 'icon', name: 'heart' %}</button></div>
+<div class="product-card-info"><h3><a href="{{ product.url }}">{{ product.title | escape }}</a></h3><p class="price">{% if product.price_varies %}{{ 'product.from' | t }} {% endif %}{{ product.price | money_with_currency }}{% if product.compare_at_price > product.price %} <s>{{ product.compare_at_price | money_with_currency }}</s>{% endif %}</p>
+{% if product.available == false %}<button class="button full" disabled>{{ 'product.sold_out' | t }}</button>{% elsif product.variants.size > 1 or product.selling_plan_groups.size > 0 %}<a class="button full" href="{{ product.url }}">{{ 'product.options' | t }}</a>{% else %}
+<form action="{{ routes.cart_add_url }}" method="post" data-add-form><input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}"><input type="hidden" name="quantity" value="1"><button class="button full" type="submit">{% render 'icon', name: 'cart' %} {{ 'product.add' | t }}</button><p class="form-error" role="alert"></p></form>
+{% endif %}</div></article>

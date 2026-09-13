@@ -1,0 +1,6 @@
+.tooling/**
+docs/**
+scripts/**
+tests/**
+package*.json
+README.md

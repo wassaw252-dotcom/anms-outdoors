@@ -1,0 +1,9 @@
+{% doc %}
+  Real Shopify storefront filters and sorting.
+  @param {string} form_id - Unique prefix for inputs
+{% enddoc %}
+<form method="get" action="{{ collection.url }}" class="filter-form">
+<label for="{{ form_id }}Sort">{{ 'shop.sort' | t }}</label><select id="{{ form_id }}Sort" name="sort_by">{% assign current_sort = collection.sort_by | default: collection.default_sort_by %}{% for option in collection.sort_options %}<option value="{{ option.value }}" {% if option.value == current_sort %}selected{% endif %}>{{ option.name | escape }}</option>{% endfor %}</select>
+{% for filter in collection.filters %}<details class="filter-group" open><summary>{{ filter.label | escape }}</summary>{% case filter.type %}{% when 'boolean', 'list' %}{% for value in filter.values %}<label class="check-label"><input type="checkbox" name="{{ value.param_name }}" value="{{ value.value }}" {% if value.active %}checked{% endif %} {% if value.count == 0 and value.active == false %}disabled{% endif %}><span>{{ value.label | escape }} ({{ value.count }})</span></label>{% endfor %}{% when 'price_range' %}<div class="price-range"><label>{{ 'shop.min' | t }} ({{ cart.currency.iso_code }})<input name="{{ filter.min_value.param_name }}" type="number" min="0" step="0.01" placeholder="0" {% if filter.min_value.value %}value="{{ filter.min_value.value | divided_by: 100.0 }}"{% endif %}></label><label>{{ 'shop.max' | t }} ({{ cart.currency.iso_code }})<input name="{{ filter.max_value.param_name }}" type="number" min="0" step="0.01" placeholder="{{ filter.range_max | divided_by: 100.0 }}" {% if filter.max_value.value %}value="{{ filter.max_value.value | divided_by: 100.0 }}"{% endif %}></label></div>{% endcase %}</details>{% endfor %}
+<button class="button full" type="submit">{{ 'shop.apply' | t }}</button><a class="text-link" href="{{ collection.url }}">{{ 'shop.reset' | t }}</a>
+</form>

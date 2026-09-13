@@ -1,0 +1,4 @@
+{% doc %}
+  Search overlay.
+{% enddoc %}
+<dialog id="SearchDialog" class="search-dialog" aria-labelledby="SearchTitle"><div class="drawer-heading"><h2 id="SearchTitle">{{ 'nav.search' | t }}</h2><button class="icon-button" data-close aria-label="{{ 'general.close' | t }}">{% render 'icon', name: 'close' %}</button></div>{% render 'search-form', form_id: 'OverlaySearch' %}<p class="muted">{{ 'search.help' | t }}</p></dialog>

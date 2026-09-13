@@ -1,1 +1,202 @@
-{"bootstrap":{"brand":"ANM’s OUTDOORS","tagline":"Built for the Wild."}}
+{
+  "bootstrap": {
+    "brand": "ANM’s OUTDOORS",
+    "tagline": "Built for the Wild."
+  },
+  "general": {
+    "skip": "Skip to content",
+    "close": "Close",
+    "remove": "Remove",
+    "view_all": "View all",
+    "pagination": "Pagination",
+    "not_found": "A little off the trail.",
+    "not_found_copy": "This page could not be found. Let’s find your way back."
+  },
+  "nav": {
+    "home": "Home",
+    "main": "Main navigation",
+    "shop": "Shop",
+    "explore": "Explore",
+    "about": "About",
+    "contact": "Contact",
+    "account": "Account",
+    "search": "Search",
+    "all_gear": "All Gear",
+    "camp_sets": "Camp Sets",
+    "open_menu": "Open menu",
+    "saved": "Saved Gear",
+    "footer": "Footer navigation",
+    "discover": "Discover"
+  },
+  "brand": {
+    "more": "MORE THAN GEAR",
+    "memories": "GOOD PEOPLE · GREAT PLACES · BETTER MEMORIES",
+    "hero_alt": "A family sharing a campfire beside a mountain lake at sunset."
+  },
+  "home": {
+    "enter": "Enter the Wild",
+    "begin": "Where memories begin",
+    "scroll": "Scroll to explore",
+    "out_there": "A little further. A little closer.",
+    "brighter": "Gear Up for a Brighter Tomorrow",
+    "brighter_copy": "For the weekends that bring us together, and the quiet moments that stay with us.",
+    "shop_all": "Shop All Gear",
+    "same_trails": "Same trails. Different stories.",
+    "find": "Find your kind of outside",
+    "categories": "Shop by Adventure",
+    "for_next": "For your next chapter",
+    "room": "Room for new adventures",
+    "connection": "A Deeper Connection",
+    "connection_copy": "ANM’s OUTDOORS is about making more time outside — from first family camping trips to simple weekend escapes.",
+    "our_story": "Our story"
+  },
+  "sound": {
+    "off": "Sound off",
+    "on": "Sound on"
+  },
+  "shop": {
+    "heading": "Shop The Outdoors",
+    "eyebrow": "Gear up. Get out. Make memories.",
+    "copy": "Find your place outside. Explore gear for family camps, quiet weekends and everyday adventures.",
+    "empty_heading": "The next adventure is taking shape.",
+    "empty_copy": "There’s no gear available in this selection right now. Come back to see what’s next, or explore another category.",
+    "browse": "Browse all available gear",
+    "count": "{{ count }} products",
+    "filter_sort": "Filter & Sort",
+    "collections": "Featured collections",
+    "sort": "Sort by",
+    "min": "Minimum",
+    "max": "Maximum",
+    "apply": "Show results",
+    "reset": "Clear filters"
+  },
+  "camp": {
+    "eyebrow": "Your people. Your pace.",
+    "copy": "Four ways to imagine your next escape.",
+    "explore": "Explore Camp Sets",
+    "note": "Adventure inspiration. Available products appear in the Camp Sets collection; these pathways are not preconfigured bundles."
+  },
+  "support": {
+    "heading": "Here to help",
+    "checkout": "Secure Shopify Checkout",
+    "checkout_copy": "Your purchase, through Shopify.",
+    "shipping": "Shipping at checkout",
+    "shipping_copy": "Available shipping options and costs are shown at checkout.",
+    "contact": "A little guidance?",
+    "contact_copy": "Get in touch with us."
+  },
+  "newsletter": {
+    "eyebrow": "Stay a little closer",
+    "heading": "Good things are out there.",
+    "copy": "Sign up for store news and inspiration for more time outside.",
+    "email": "Email address",
+    "submit": "Join us",
+    "success": "Thanks for joining us. You’re on the list."
+  },
+  "footer": {
+    "quote": "Good gear. Good people. Better memories."
+  },
+  "product": {
+    "image_pending": "Image coming soon",
+    "sale": "Sale",
+    "new": "New arrival",
+    "from": "From",
+    "sold_out": "Unavailable",
+    "options": "Choose options",
+    "add": "Add to Cart",
+    "previous": "Previous product media",
+    "next": "Next product media",
+    "gallery_hint": "Explore the details",
+    "view_media": "View product media {{ number }}",
+    "variant": "Choose your option",
+    "variant_hint": "The selected option and its price will be confirmed in your cart.",
+    "purchase": "Purchase option",
+    "one_time": "One-time purchase",
+    "quantity": "Quantity",
+    "decrease": "Decrease quantity",
+    "increase": "Increase quantity",
+    "features": "Features",
+    "specifications": "Specifications",
+    "shipping": "Shipping information",
+    "reviews": "Reviews",
+    "details_pending": "Details will be confirmed with this product.",
+    "no_reviews": "No customer reviews are available here yet.",
+    "recommended": "You may also like"
+  },
+  "saved": {
+    "save": "Save {{ title }}",
+    "save_gear": "Save this gear",
+    "device": "Saved in this browser only. No account syncing.",
+    "eyebrow": "For another day",
+    "empty": "A little inspiration for later.",
+    "empty_copy": "Tap the heart on any product to keep it here.",
+    "nojs": "Saved Gear requires JavaScript and browser storage."
+  },
+  "cart": {
+    "title": "Your Cart",
+    "empty": "Your next adventure starts here.",
+    "empty_copy": "Your cart is empty. Find something for your next trip outside.",
+    "remove": "Remove {{ title }}",
+    "note": "Order note (optional)",
+    "subtotal": "Subtotal",
+    "shipping": "Shipping and taxes are calculated at checkout.",
+    "checkout": "Checkout",
+    "update": "Update cart",
+    "view": "View cart"
+  },
+  "search": {
+    "label": "Search products",
+    "placeholder": "Search gear for your next adventure…",
+    "help": "Search our available products by name or keyword.",
+    "eyebrow": "Find your next adventure",
+    "count": "{{ count }} results for “{{ terms }}”",
+    "empty": "No gear found.",
+    "try": "Try another keyword or browse our available collections."
+  },
+  "explore": {
+    "eyebrow": "A field guide to more outside",
+    "heading": "Explore the Outdoors",
+    "intro": "Small ideas for meaningful time outside. Start where you are, with the people you love.",
+    "start": "Good weekends start simply",
+    "small": "Less rush. More wonder.",
+    "camping": "Camping Guides",
+    "camping_copy": "Start with an easy-to-reach campsite. Check the site’s facilities and current rules before you go. Practise pitching your shelter at home, make a packing list and leave enough daylight to settle in.",
+    "family": "Family Camping",
+    "family_copy": "Keep the first trip simple. Let everyone choose one small activity, pack familiar comforts and leave space in the day for unplanned discoveries. A short, happy weekend is a good beginning.",
+    "gear": "Gear Guides",
+    "gear_copy": "Choose for the trip you’re actually taking. Compare the product’s listed dimensions, packed size and care information. Check what is included, and ask us when details need confirming.",
+    "setup": "Camp Setup Inspiration",
+    "setup_copy": "Think in three spaces: sleeping, cooking and relaxing. Follow campsite guidance for where each belongs. Keep paths clear, organise essentials where everyone can find them and pack out what you bring in.",
+    "stories": "Outdoor Stories",
+    "stories_copy": "Make a small record of your own time outside: a sketch of the view, a favourite meal, or a moment you want to remember. The best part of a weekend is often the story you take home."
+  },
+  "about": {
+    "heading": "More time outside. More time together.",
+    "copy": "A change of scenery can change the rhythm of a day. There is room to slow down, share a meal and notice the world around us.",
+    "values": "Adventure, family and nature shape our direction. We’re here for thoughtful camping experiences and the memories that grow from them."
+  },
+  "contact": {
+    "copy": "Have a question about gear or your order? Leave a message below.",
+    "name": "Name",
+    "message": "Message",
+    "send": "Send message",
+    "success": "Thanks. Your message has been sent."
+  },
+  "js": {
+    "error": "Something went wrong. Please try again.",
+    "added": "Added to your cart.",
+    "updated": "Cart updated.",
+    "saved": "Saved in this browser.",
+    "removed": "Removed from Saved Gear.",
+    "storage": "Your browser could not save this item. Please allow local storage and try again.",
+    "loading": "Loading…",
+    "cart_error": "Your cart could not be updated. Please try again.",
+    "sound_on": "Sound on",
+    "sound_off": "Sound off",
+    "sound_error": "Sound is unavailable. You can still explore the store.",
+    "unavailable": "This saved product is no longer available.",
+    "remove": "Remove",
+    "retry": "Try again",
+    "saved_error": "Saved gear could not be loaded. Please refresh to try again."
+  }
+}

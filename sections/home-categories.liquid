@@ -1,0 +1,4 @@
+<section class="section cream" aria-labelledby="CategoriesTitle"><div class="wrap"><div class="section-heading"><div><span class="eyebrow">{{ 'home.find' | t }}</span><h2 id="CategoriesTitle">{{ 'home.categories' | t }}</h2></div><a class="text-link" href="{{ collections['all-gear'].url | default: routes.all_products_collection_url }}">{{ 'nav.all_gear' | t }} {% render 'icon', name: 'arrow' %}</a></div>{% render 'categories' %}</div></section>
+{% schema %}
+{"name":"Shop by adventure","settings":[],"presets":[{"name":"Shop by adventure"}]}
+{% endschema %}

@@ -1,0 +1,11 @@
+{
+  "sections": {
+    "main": {
+      "type": "saved-gear",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

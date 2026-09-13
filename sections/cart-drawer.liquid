@@ -1,0 +1,4 @@
+<dialog id="CartDialog" class="drawer cart-drawer" aria-labelledby="CartTitle"><div class="drawer-heading"><h2 id="CartTitle">{{ 'cart.title' | t }} (<span data-cart-count>{{ cart.item_count }}</span>)</h2><button class="icon-button" data-close aria-label="{{ 'general.close' | t }}">{% render 'icon', name: 'close' %}</button></div><div class="drawer-body" data-cart-content>{% render 'cart-content', context: 'drawer' %}</div></dialog>
+{% schema %}
+{"name":"Cart drawer","settings":[]}
+{% endschema %}

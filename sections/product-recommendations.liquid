@@ -1,0 +1,4 @@
+<section class="section cream" data-recommendations="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit=4&intent=related" {% unless recommendations.performed and recommendations.products_count > 0 %}hidden{% endunless %}><div class="wrap"><div class="section-heading"><h2>{{ 'product.recommended' | t }}</h2></div><div class="product-grid">{% for recommendation in recommendations.products %}{% render 'product-card', product: recommendation %}{% endfor %}</div></div></section>
+{% schema %}
+{"name":"Product recommendations","settings":[]}
+{% endschema %}

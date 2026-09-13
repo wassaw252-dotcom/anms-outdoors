@@ -1,1 +1,81 @@
-{"sections":{"main":{"type":"bootstrap"}},"order":["main"]}
+{
+  "sections": {
+    "entrance": {
+      "type": "entrance",
+      "settings": {}
+    },
+    "story": {
+      "type": "home-story",
+      "settings": {}
+    },
+    "categories": {
+      "type": "home-categories",
+      "settings": {}
+    },
+    "featured": {
+      "type": "featured-gear",
+      "settings": {
+        "collection": "all-gear",
+        "heading": "Featured Gear",
+        "limit": 4
+      }
+    },
+    "camp": {
+      "type": "camp-pathways",
+      "settings": {},
+      "blocks": {
+        "path0": {
+          "type": "pathway",
+          "settings": {
+            "title": "Solo Explorer",
+            "caption": "A little space. A new perspective."
+          }
+        },
+        "path1": {
+          "type": "pathway",
+          "settings": {
+            "title": "Couple Escape",
+            "caption": "Somewhere quieter, together."
+          }
+        },
+        "path2": {
+          "type": "pathway",
+          "settings": {
+            "title": "Family Adventure",
+            "caption": "Make more memories."
+          }
+        },
+        "path3": {
+          "type": "pathway",
+          "settings": {
+            "title": "Premium Basecamp",
+            "caption": "Settle in. Stay a little longer."
+          }
+        }
+      },
+      "block_order": [
+        "path0",
+        "path1",
+        "path2",
+        "path3"
+      ]
+    },
+    "connection": {
+      "type": "brand-story",
+      "settings": {}
+    },
+    "explore": {
+      "type": "explore-teaser",
+      "settings": {}
+    }
+  },
+  "order": [
+    "entrance",
+    "story",
+    "categories",
+    "featured",
+    "camp",
+    "connection",
+    "explore"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "settings": {}
+    },
+    "recommendations": {
+      "type": "product-recommendations",
+      "settings": {}
+    },
+    "complete": {
+      "type": "featured-gear",
+      "settings": {
+        "collection": "camp-sets",
+        "heading": "Complete Your Camp",
+        "limit": 4
+      }
+    }
+  },
+  "order": [
+    "main",
+    "recommendations",
+    "complete"
+  ]
+}

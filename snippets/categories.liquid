@@ -1,0 +1,19 @@
+{% doc %}
+  Real collection links with collection imagery and honest icon fallbacks.
+  @param {string} [mode] - Layout modifier
+{% enddoc %}
+{% assign handles = 'tents-shelters,furniture-comfort,sleeping-relaxation,camp-kitchen-dining,lighting-power,hydration-outdoor-living,gear-essentials' | split: ',' %}
+{% assign icons = 'tent,chair,sleep,pot,lantern,bottle,pack' | split: ',' %}
+<div class="categories categories--{{ mode | default: 'grid' }}">
+{% for category_handle in handles %}
+{% assign category = collections[category_handle] %}
+{% if category != blank %}
+<a class="category" href="{{ category.url }}">
+<span class="category-visual">
+{% if category.image %}{{ category.image | image_url: width: 480 | image_tag: loading: 'lazy', widths: '160, 240, 480', sizes: '(min-width: 990px) 180px, 40vw' }}{% else %}{% render 'icon', name: icons[forloop.index0] %}{% endif %}
+</span>
+<span class="category-name">{{ category.title | escape }}</span><span class="category-arrow">{% render 'icon', name: 'arrow' %}</span>
+</a>
+{% endif %}
+{% endfor %}
+</div>

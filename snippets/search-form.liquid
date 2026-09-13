@@ -1,0 +1,7 @@
+{% doc %}
+  Shopify product search form.
+  @param {string} form_id - Unique field identifier
+{% enddoc %}
+<form class="search-form" action="{{ routes.search_url }}" method="get" role="search">
+<label class="sr-only" for="{{ form_id }}">{{ 'search.label' | t }}</label><input id="{{ form_id }}" name="q" type="search" value="{{ search.terms | escape }}" placeholder="{{ 'search.placeholder' | t }}" required><input type="hidden" name="type" value="product"><input type="hidden" name="options[prefix]" value="last"><button class="icon-button" aria-label="{{ 'nav.search' | t }}">{% render 'icon', name: 'search' %}</button>
+</form>

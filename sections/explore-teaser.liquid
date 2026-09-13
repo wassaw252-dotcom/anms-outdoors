@@ -1,0 +1,4 @@
+<section class="section cream"><div class="wrap"><div class="section-heading"><div><span class="eyebrow">{{ 'explore.eyebrow' | t }}</span><h2>{{ 'explore.heading' | t }}</h2></div><a class="text-link" href="{{ routes.root_url }}?view=explore">{{ 'nav.explore' | t }} {% render 'icon', name: 'arrow' %}</a></div><div class="explore-links">{% assign topics = 'camping,family,gear,setup,stories' | split: ',' %}{% for topic in topics %}{% assign key = 'explore.' | append: topic %}<a href="{{ routes.root_url }}?view=explore#{{ topic }}"><span class="small">0{{ forloop.index }}</span><h3>{{ key | t }}</h3>{% render 'icon', name: 'arrow' %}</a>{% endfor %}</div></div></section>
+{% schema %}
+{"name":"Explore teaser","settings":[],"presets":[{"name":"Explore teaser"}]}
+{% endschema %}

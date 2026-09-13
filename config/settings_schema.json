@@ -3,8 +3,18 @@
     "name": "theme_info",
     "theme_name": "ANM’s OUTDOORS",
     "theme_author": "ANM’s",
-    "theme_version": "0.1.0",
+    "theme_version": "1.0.0",
     "theme_documentation_url": "https://github.com/wassaw252-dotcom/anms-outdoors",
     "theme_support_url": "https://github.com/wassaw252-dotcom/anms-outdoors/issues"
+  },
+  {
+    "name": "Brand",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Logo (official supplied logo used by default)"
+      }
+    ]
   }
 ]

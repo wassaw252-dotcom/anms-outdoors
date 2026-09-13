@@ -1,0 +1,8 @@
+{% doc %}
+  Official logo, preserved at its original aspect ratio.
+{% enddoc %}
+{% if settings.logo != blank %}
+{{ settings.logo | image_url: width: 600 | image_tag: widths: '180, 300, 450, 600', sizes: '220px', alt: "ANM’s OUTDOORS", class: 'brand-logo' }}
+{% else %}
+<img class="brand-logo" src="{{ 'anm-logo.jpg' | asset_url }}" alt="ANM’s OUTDOORS" width="2172" height="724">
+{% endif %}

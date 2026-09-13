@@ -1,0 +1,10 @@
+<section class="entrance" aria-labelledby="EntranceTitle" data-entrance>
+<div class="entrance-image">
+{% if section.settings.image %}{{ section.settings.image | image_url: width: 2400 | image_tag: widths: '640, 960, 1536, 1920, 2400', sizes: '100vw', loading: 'eager', fetchpriority: 'high', class: 'cover' }}{% else %}<img class="cover" src="{{ 'anm-campsite.jpg' | asset_url }}" width="1536" height="1024" alt="{{ 'brand.hero_alt' | t }}" loading="eager" fetchpriority="high">{% endif %}
+</div>
+<div class="entrance-content wrap"><p class="eyebrow">{{ 'brand.more' | t }}</p><h1 id="EntranceTitle">{{ 'bootstrap.tagline' | t }}</h1><p class="entrance-line">{{ 'brand.memories' | t }}</p><a class="button entrance-button" href="#StoreStart" data-enter>{{ 'home.enter' | t }} {% render 'icon', name: 'arrow' %}</a></div>
+<div class="entrance-bottom wrap"><span class="small">01 / {{ 'home.begin' | t }}</span><a class="scroll-cue" href="#StoreStart">{{ 'home.scroll' | t }} <span aria-hidden="true">↓</span></a><button class="sound-button" data-sound aria-pressed="false">{% render 'icon', name: 'sound' %}<span data-sound-label>{{ 'sound.off' | t }}</span></button></div>
+</section>
+{% schema %}
+{"name":"Cinematic entrance","settings":[{"type":"image_picker","id":"image","label":"Entrance image (official campsite default)"}],"presets":[{"name":"Cinematic entrance"}]}
+{% endschema %}

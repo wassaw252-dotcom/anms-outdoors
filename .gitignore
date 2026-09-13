@@ -1,0 +1,6 @@
+.tooling/
+node_modules/
+.shopify/
+.env*
+test-results/
+*.zip
