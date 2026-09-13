@@ -10,7 +10,7 @@
 {% assign category_key = 'categories.' | append: category_handle %}
 {% if category.url != blank %}<a class="category" href="{{ category.url }}">{% else %}<div class="category">{% endif %}
 <span class="category-visual">
-{% if category.image %}{{ category.image | image_url: width: 480 | image_tag: loading: 'lazy', widths: '160, 240, 480', sizes: '(min-width: 990px) 180px, 40vw' }}{% else %}{% render 'icon', name: icons[forloop.index0] %}{% endif %}
+{% if category.url != blank and category.image != blank %}{{ category.image | image_url: width: 480 | image_tag: loading: 'lazy', widths: '160, 240, 480', sizes: '(min-width: 990px) 180px, 40vw' }}{% else %}{% render 'icon', name: icons[forloop.index0] %}{% endif %}
 </span>
 <span class="category-name">{% if category.url != blank %}{{ category.title | escape }}{% else %}{{ category_key | t }}<small class="category-status">{{ 'shop.not_available' | t }}</small>{% endif %}</span>
 {% if category.url != blank %}<span class="category-arrow">{% render 'icon', name: 'arrow' %}</span></a>{% else %}</div>{% endif %}
