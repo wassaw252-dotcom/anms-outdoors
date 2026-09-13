@@ -61,6 +61,7 @@
     "empty_heading": "The next adventure is taking shape.",
     "empty_copy": "There’s no gear available in this selection right now. Come back to see what’s next, or explore another category.",
     "browse": "Browse all available gear",
+    "not_available": "Not available yet",
     "count": "{{ count }} products",
     "filter_sort": "Filter & Sort",
     "collections": "Featured collections",
@@ -70,10 +71,20 @@
     "apply": "Show results",
     "reset": "Clear filters"
   },
+  "categories": {
+    "tents-shelters": "Tents & Shelters",
+    "furniture-comfort": "Furniture & Comfort",
+    "sleeping-relaxation": "Sleeping & Relaxation",
+    "camp-kitchen-dining": "Camp Kitchen & Dining",
+    "lighting-power": "Lighting & Power",
+    "hydration-outdoor-living": "Hydration & Outdoor Living",
+    "gear-essentials": "Gear & Essentials"
+  },
   "camp": {
     "eyebrow": "Your people. Your pace.",
     "copy": "Four ways to imagine your next escape.",
     "explore": "Explore Camp Sets",
+    "unavailable": "The Camp Sets collection is not available yet.",
     "note": "Adventure inspiration. Available products appear in the Camp Sets collection; these pathways are not preconfigured bundles."
   },
   "support": {
