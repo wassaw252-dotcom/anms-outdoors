@@ -17,3 +17,4 @@
 .entrance-line{letter-spacing:.18em}
 @media(forced-colors:active){.entrance h1,#StoryTitle{-webkit-mask-image:none;mask-image:none}}
 @media print{.entrance h1,#StoryTitle{-webkit-mask-image:none;mask-image:none}}
+.menu-drawer .brand-logo{mix-blend-mode:screen}
