@@ -47,6 +47,17 @@ a.category:hover .category-visual img,a.pathway:hover>.cover,.product-card:hover
 .page-collection .collection-hero h1,.page-page main h1,.page-search main h1,.page-product .product-info h1,.page-404 main h1,.page-list-collections main h1,.page-cart main h1,.editorial-hero h1{
   font-family:'ANM Display',var(--font-heading);font-style:normal;font-weight:400;text-transform:uppercase;letter-spacing:-.01em;transform:skewX(-9deg);transform-origin:left center;line-height:.98;font-size:clamp(2.25rem,5vw,4rem)
 }
+
+/* Collection title: same distressed / punched-hole ANM display treatment as the approved brand headings. */
+.page-collection .collection-hero h1{
+  -webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='110' viewBox='0 0 180 110'%3E%3Crect width='180' height='110' fill='white'/%3E%3Cg fill='black'%3E%3Ccircle cx='12' cy='17' r='1.5'/%3E%3Ccircle cx='31' cy='42' r='1'/%3E%3Ccircle cx='53' cy='16' r='1.8'/%3E%3Ccircle cx='79' cy='33' r='1.2'/%3E%3Ccircle cx='104' cy='12' r='1.3'/%3E%3Ccircle cx='128' cy='38' r='1.7'/%3E%3Ccircle cx='154' cy='20' r='1.1'/%3E%3Ccircle cx='171' cy='48' r='1.5'/%3E%3Ccircle cx='22' cy='72' r='1.2'/%3E%3Ccircle cx='45' cy='91' r='1.6'/%3E%3Ccircle cx='68' cy='61' r='1'/%3E%3Ccircle cx='94' cy='83' r='1.8'/%3E%3Ccircle cx='117' cy='67' r='1.2'/%3E%3Ccircle cx='143' cy='96' r='1.4'/%3E%3Ccircle cx='166' cy='76' r='1.6'/%3E%3Cpath d='M7 54h8v1.6H7zM37 24h11v1.5H37zM62 99h9v1.4h-9zM87 48h13v1.7H87zM118 25h9v1.5h-9zM149 58h12v1.6h-12zM15 101h7v1.4h-7zM132 81h8v1.5h-8z'/%3E%3C/g%3E%3C/svg%3E");
+  mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='110' viewBox='0 0 180 110'%3E%3Crect width='180' height='110' fill='white'/%3E%3Cg fill='black'%3E%3Ccircle cx='12' cy='17' r='1.5'/%3E%3Ccircle cx='31' cy='42' r='1'/%3E%3Ccircle cx='53' cy='16' r='1.8'/%3E%3Ccircle cx='79' cy='33' r='1.2'/%3E%3Ccircle cx='104' cy='12' r='1.3'/%3E%3Ccircle cx='128' cy='38' r='1.7'/%3E%3Ccircle cx='154' cy='20' r='1.1'/%3E%3Ccircle cx='171' cy='48' r='1.5'/%3E%3Ccircle cx='22' cy='72' r='1.2'/%3E%3Ccircle cx='45' cy='91' r='1.6'/%3E%3Ccircle cx='68' cy='61' r='1'/%3E%3Ccircle cx='94' cy='83' r='1.8'/%3E%3Ccircle cx='117' cy='67' r='1.2'/%3E%3Ccircle cx='143' cy='96' r='1.4'/%3E%3Ccircle cx='166' cy='76' r='1.6'/%3E%3Cpath d='M7 54h8v1.6H7zM37 24h11v1.5H37zM62 99h9v1.4h-9zM87 48h13v1.7H87zM118 25h9v1.5h-9zM149 58h12v1.6h-12zM15 101h7v1.4h-7zM132 81h8v1.5h-8z'/%3E%3C/g%3E%3C/svg%3E");
+  -webkit-mask-size:2.2em 1.35em;mask-size:2.2em 1.35em;
+  -webkit-mask-repeat:repeat;mask-repeat:repeat
+}
+@media(prefers-reduced-motion:no-preference){.page-collection .collection-hero h1{animation:anm-collection-title-in 1s var(--anm-claude-ease) both}}
+@keyframes anm-collection-title-in{from{opacity:0;clip-path:inset(0 100% 0 0);filter:blur(2px)}to{opacity:1;clip-path:inset(0 0 0 0);filter:none}}
+
 @media(max-width:1099px){:root{--header:64px}}
 @media(max-width:767px){.page-collection .collection-hero h1,.page-page main h1,.page-search main h1,.page-product .product-info h1,.page-404 main h1,.page-list-collections main h1,.page-cart main h1,.editorial-hero h1{font-size:clamp(2rem,10vw,3rem)}}
 
@@ -65,6 +76,6 @@ a.category:hover .category-visual img,a.pathway:hover>.cover,.product-card:hover
 @media(min-width:1100px){.desktop-nav>a,.mega>summary{font-size:1.08rem}}
 
 @media(prefers-reduced-motion:reduce){
-  .drawer[open],.search-dialog[open],#SearchDialog[open],dialog[open]::backdrop,.entrance .eyebrow,.entrance-line,.entrance-button,.entrance h1,.scroll-cue .icon{animation:none!important}
+  .drawer[open],.search-dialog[open],#SearchDialog[open],dialog[open]::backdrop,.entrance .eyebrow,.entrance-line,.entrance-button,.entrance h1,.scroll-cue .icon,.page-collection .collection-hero h1{animation:none!important}
   .header,.desktop-nav>a::after,.mega>summary::after,.mega-panel,.mega>summary .icon,.category-visual img,.pathway>.cover,.product-card-media img,.text-link .icon,.category-arrow .icon{transition:none!important}
 }
