@@ -1,3 +1,10 @@
+<style id="anm-transparent-logo">
+.header .brand-logo,
+.menu-drawer .brand-logo {
+  mix-blend-mode: screen;
+  background: transparent !important;
+}
+</style>
 <header class="header">
 <div class="header-inner wrap">
 <a class="brand" href="{{ routes.root_url }}" aria-label="{{ 'nav.home' | t }}">{% render 'logo' %}</a>
