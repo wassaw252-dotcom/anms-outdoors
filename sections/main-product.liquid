@@ -1,4 +1,21 @@
 {% assign selected_variant = product.selected_or_first_available_variant %}
+<style>
+.page-product .product-info h1{
+  font-family:var(--font-body)!important;
+  font-style:normal!important;
+  font-weight:600!important;
+  text-transform:none!important;
+  letter-spacing:-.02em!important;
+  transform:none!important;
+  line-height:1.15!important;
+  font-size:clamp(1.8rem,2.8vw,2.8rem)!important;
+  -webkit-mask-image:none!important;
+  mask-image:none!important;
+}
+@media(max-width:767px){
+  .page-product .product-info h1{font-size:clamp(1.65rem,7vw,2.2rem)!important}
+}
+</style>
 <section class="section wrap product-section" id="Product-{{ section.id }}" data-product-section="{{ section.id }}" data-product-url="{{ product.url }}">
 <p class="breadcrumb"><a href="{{ routes.root_url }}">{{ 'nav.home' | t }}</a> / <a href="{{ routes.all_products_collection_url }}">{{ 'nav.shop' | t }}</a> / {{ product.title | escape }}</p>
 <div class="product-layout"><div class="gallery-wrap"><div class="product-gallery" data-gallery>
