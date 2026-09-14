@@ -1,4 +1,15 @@
 {% assign selected_variant = product.selected_or_first_available_variant %}
+{% assign selected_media = selected_variant.featured_media %}
+{% if selected_media == blank %}
+  {% assign selected_variant_title = selected_variant.title | downcase %}
+  {% for media in product.media %}
+    {% assign media_alt = media.alt | downcase %}
+    {% if media_alt contains selected_variant_title %}
+      {% assign selected_media = media %}
+      {% break %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
 <style>
 .page-product .product-info h1{
   font-family:var(--font-body)!important;
@@ -12,21 +23,65 @@
   -webkit-mask-image:none!important;
   mask-image:none!important;
 }
+.variant-picker-fieldset{border:0;padding:0;margin:0 0 18px;min-width:0}
+.variant-picker-fieldset legend{font-size:.85rem;margin-bottom:9px;padding:0}
+.variant-picker{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.variant-card{position:relative;display:grid;grid-template-columns:54px minmax(0,1fr);gap:10px;align-items:center;min-height:76px;padding:9px;border:1px solid var(--line);border-radius:8px;background:#102018;cursor:pointer;transition:border-color .16s,background .16s,box-shadow .16s}
+.variant-card:hover{border-color:#8c9a72;background:#14271d}
+.variant-card:has(input:checked){border-color:var(--gold);background:#18291d;box-shadow:0 0 0 2px #d2af7133}
+.variant-card input{position:absolute;opacity:0;pointer-events:none}
+.variant-card-media{width:54px;height:54px;border-radius:6px;overflow:hidden;background:#ded9ca;display:flex;align-items:center;justify-content:center}
+.variant-card-media img{width:100%;height:100%;object-fit:cover}
+.variant-card-media--empty{color:var(--muted);font-size:.62rem;text-align:center;line-height:1.25;padding:4px;background:#142218}
+.variant-card-copy{min-width:0;display:flex;flex-direction:column;gap:2px}
+.variant-card-title{font-size:.78rem;line-height:1.3;font-weight:600;overflow-wrap:anywhere}
+.variant-card-price{font-size:.72rem;line-height:1.25;color:var(--muted)}
+.variant-card-status{font-size:.65rem;line-height:1.2;color:#f4bdad}
+.gallery-thumbs a[aria-current="true"]{border-color:var(--gold);box-shadow:0 0 0 2px #d2af7133}
 @media(max-width:767px){
   .page-product .product-info h1{font-size:clamp(1.65rem,7vw,2.2rem)!important}
+  .variant-picker{gap:8px}
+  .variant-card{grid-template-columns:48px minmax(0,1fr);min-height:70px;padding:8px;gap:8px}
+  .variant-card-media{width:48px;height:48px}
+  .variant-card-title{font-size:.75rem}
+  .variant-card-price{font-size:.68rem}
+}
+@media(max-width:374px){
+  .variant-picker{grid-template-columns:1fr}
 }
 </style>
-<section class="section wrap product-section" id="Product-{{ section.id }}" data-product-section="{{ section.id }}" data-product-url="{{ product.url }}">
+<section class="section wrap product-section" id="Product-{{ section.id }}" data-product-section="{{ section.id }}" data-product-url="{{ product.url }}"{% if selected_media %} data-selected-media="{{ selected_media.id }}"{% endif %}>
 <p class="breadcrumb"><a href="{{ routes.root_url }}">{{ 'nav.home' | t }}</a> / <a href="{{ routes.all_products_collection_url }}">{{ 'nav.shop' | t }}</a> / {{ product.title | escape }}</p>
 <div class="product-layout"><div class="gallery-wrap"><div class="product-gallery" data-gallery>
 {% for media in product.media %}<div class="gallery-slide" id="Media-{{ media.id }}">{% case media.media_type %}{% when 'image' %}{% assign image_loading = 'lazy' %}{% if forloop.first %}{% assign image_loading = 'eager' %}{% endif %}{{ media | image_url: width: 1600 | image_tag: widths: '400, 640, 960, 1280, 1600', sizes: '(min-width: 990px) 55vw, 100vw', loading: image_loading }}{% when 'video' %}{{ media | video_tag: controls: true, preload: 'none', image_size: '960x', loop: false }}{% when 'external_video' %}{{ media | external_video_tag: loading: 'lazy' }}{% when 'model' %}{{ media | model_viewer_tag: reveal: 'interaction', toggleable: true }}{% endcase %}</div>{% else %}<div class="image-empty">{% render 'icon', name: 'tent' %}{{ 'product.image_pending' | t }}</div>{% endfor %}</div>
-{% if product.media.size > 1 %}<div class="gallery-controls"><button class="icon-button" data-gallery-step="-1" aria-label="{{ 'product.previous' | t }}"><span aria-hidden="true">←</span></button><span>{{ 'product.gallery_hint' | t }}</span><button class="icon-button" data-gallery-step="1" aria-label="{{ 'product.next' | t }}">{% render 'icon', name: 'arrow' %}</button></div><div class="gallery-thumbs">{% for media in product.media %}<a href="#Media-{{ media.id }}" data-media-link="{{ media.id }}" aria-label="{{ 'product.view_media' | t: number: forloop.index }}">{{ media.preview_image | image_url: width: 160 | image_tag: loading: 'lazy', widths: '80, 160', sizes: '72px', alt: '' }}</a>{% endfor %}</div>{% endif %}</div>
+{% if product.media.size > 1 %}<div class="gallery-controls"><button class="icon-button" data-gallery-step="-1" aria-label="{{ 'product.previous' | t }}"><span aria-hidden="true">←</span></button><span>{{ 'product.gallery_hint' | t }}</span><button class="icon-button" data-gallery-step="1" aria-label="{{ 'product.next' | t }}">{% render 'icon', name: 'arrow' %}</button></div><div class="gallery-thumbs">{% for media in product.media %}<a href="#Media-{{ media.id }}" data-media-link="{{ media.id }}"{% if selected_media and media.id == selected_media.id %} aria-current="true"{% endif %} aria-label="{{ 'product.view_media' | t: number: forloop.index }}">{{ media.preview_image | image_url: width: 160 | image_tag: loading: 'lazy', widths: '80, 160', sizes: '72px', alt: '' }}</a>{% endfor %}</div>{% endif %}</div>
 <div class="product-info"><span class="eyebrow">{{ 'bootstrap.brand' | t }}</span><h1>{{ product.title | escape }}</h1><p class="price product-price">{{ selected_variant.price | money_with_currency }}{% if selected_variant.compare_at_price > selected_variant.price %} <s>{{ selected_variant.compare_at_price | money_with_currency }}</s>{% endif %}</p>
 {% assign product_form_id = 'ProductForm-' | append: section.id %}
 {% form 'product', product, id: product_form_id, data-add-form: '' %}
-{% unless product.has_only_default_variant %}<label for="Variant-{{ section.id }}">{{ 'product.variant' | t }}</label><select id="Variant-{{ section.id }}" name="id" data-variant-select>{% for variant in product.variants %}<option value="{{ variant.id }}" {% if variant.id == selected_variant.id %}selected{% endif %}>{{ variant.title | escape }} — {{ variant.price | money_with_currency }}{% unless variant.available %} — {{ 'product.sold_out' | t }}{% endunless %}</option>{% endfor %}</select><noscript><p>{{ 'product.variant_hint' | t }}</p></noscript>{% else %}<input type="hidden" name="id" value="{{ selected_variant.id }}">{% endunless %}
+{% unless product.has_only_default_variant %}
+<fieldset class="variant-picker-fieldset"><legend>{{ 'product.variant' | t }}</legend><div class="variant-picker" data-variant-picker>
+{% for variant in product.variants %}
+  {% assign variant_media = variant.featured_media %}
+  {% if variant_media == blank %}
+    {% assign variant_title_match = variant.title | downcase %}
+    {% for media in product.media %}
+      {% assign media_alt_match = media.alt | downcase %}
+      {% if media_alt_match contains variant_title_match %}
+        {% assign variant_media = media %}
+        {% break %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+  <label class="variant-card"{% unless variant.available %} data-sold-out="true"{% endunless %}>
+    <input type="radio" name="id" value="{{ variant.id }}" data-variant-radio data-price="{{ variant.price | money_with_currency | escape }}" data-compare="{% if variant.compare_at_price > variant.price %}{{ variant.compare_at_price | money_with_currency | escape }}{% endif %}" data-available="{{ variant.available }}" data-min="{{ variant.quantity_rule.min | default: 1 }}" data-step="{{ variant.quantity_rule.increment | default: 1 }}"{% if variant.quantity_rule.max %} data-max="{{ variant.quantity_rule.max }}"{% endif %}{% if variant_media %} data-media-id="{{ variant_media.id }}"{% endif %}{% if variant.id == selected_variant.id %} checked{% endif %}>
+    {% if variant_media and variant_media.preview_image %}<span class="variant-card-media">{{ variant_media.preview_image | image_url: width: 140 | image_tag: loading: 'lazy', widths: '70, 140', sizes: '54px', alt: variant.title }}</span>{% else %}<span class="variant-card-media variant-card-media--empty">View option</span>{% endif %}
+    <span class="variant-card-copy"><span class="variant-card-title">{{ variant.title | escape }}</span><span class="variant-card-price">{{ variant.price | money_with_currency }}</span>{% unless variant.available %}<span class="variant-card-status">{{ 'product.sold_out' | t }}</span>{% endunless %}</span>
+  </label>
+{% endfor %}
+</div></fieldset><noscript><p>{{ 'product.variant_hint' | t }}</p></noscript>
+{% else %}<input type="hidden" name="id" value="{{ selected_variant.id }}">{% endunless %}
 {% if product.selling_plan_groups.size > 0 %}<label for="Plan-{{ section.id }}">{{ 'product.purchase' | t }}</label><select name="selling_plan" id="Plan-{{ section.id }}">{% unless product.requires_selling_plan %}<option value="">{{ 'product.one_time' | t }}</option>{% endunless %}{% for allocation in selected_variant.selling_plan_allocations %}<option value="{{ allocation.selling_plan.id }}">{{ allocation.selling_plan.name | escape }} — {{ allocation.price | money_with_currency }}</option>{% endfor %}</select>{% endif %}
-<label for="Quantity-{{ section.id }}">{{ 'product.quantity' | t }}</label><div class="purchase-row"><div class="quantity-control"><button type="button" class="icon-button" data-quantity="-1" aria-label="{{ 'product.decrease' | t }}">−</button><input id="Quantity-{{ section.id }}" name="quantity" type="number" min="{{ selected_variant.quantity_rule.min | default: 1 }}" step="{{ selected_variant.quantity_rule.increment | default: 1 }}" {% if selected_variant.quantity_rule.max %}max="{{ selected_variant.quantity_rule.max }}"{% endif %} value="{{ selected_variant.quantity_rule.min | default: 1 }}"><button type="button" class="icon-button" data-quantity="1" aria-label="{{ 'product.increase' | t }}">+</button></div><button class="button" type="submit" {% unless selected_variant.available %}disabled{% endunless %}>{% render 'icon', name: 'cart' %}{% if selected_variant.available %}{{ 'product.add' | t }}{% else %}{{ 'product.sold_out' | t }}{% endif %}</button></div>
+<label for="Quantity-{{ section.id }}">{{ 'product.quantity' | t }}</label><div class="purchase-row"><div class="quantity-control"><button type="button" class="icon-button" data-quantity="-1" aria-label="{{ 'product.decrease' | t }}">−</button><input id="Quantity-{{ section.id }}" name="quantity" type="number" min="{{ selected_variant.quantity_rule.min | default: 1 }}" step="{{ selected_variant.quantity_rule.increment | default: 1 }}" {% if selected_variant.quantity_rule.max %}max="{{ selected_variant.quantity_rule.max }}"{% endif %} value="{{ selected_variant.quantity_rule.min | default: 1 }}"><button type="button" class="icon-button" data-quantity="1" aria-label="{{ 'product.increase' | t }}">+</button></div><button class="button" type="submit" data-add-button {% unless selected_variant.available %}disabled{% endunless %}>{% render 'icon', name: 'cart' %}<span data-add-label>{% if selected_variant.available %}{{ 'product.add' | t }}{% else %}{{ 'product.sold_out' | t }}{% endif %}</span></button></div>
 <p class="form-error" role="alert">{{ form.errors | default_errors }}</p>
 {% if section.settings.buy_now and selected_variant.available and product.requires_selling_plan == false %}{{ form | payment_button }}{% endif %}
 {% endform %}
@@ -34,6 +89,77 @@
 <div class="richtext product-description">{{ product.description }}</div>
 <div class="product-details"><details><summary>{{ 'product.features' | t }}</summary><p>{{ 'product.details_pending' | t }}</p></details><details><summary>{{ 'product.specifications' | t }}</summary><p>{{ 'product.details_pending' | t }}</p></details><details><summary>{{ 'product.shipping' | t }}</summary>{% if shop.shipping_policy.body != blank %}<div class="richtext">{{ shop.shipping_policy.body }}</div>{% else %}<p>{{ 'support.shipping_copy' | t }}</p><a class="text-link" href="{{ pages.contact.url }}">{{ 'nav.contact' | t }}</a>{% endif %}</details><details><summary>{{ 'product.reviews' | t }}</summary><p>{{ 'product.no_reviews' | t }}</p></details></div>
 </div></div></section>
+<script>
+(() => {
+  if (window.__anmsVariantPickerV2) return;
+  window.__anmsVariantPickerV2 = true;
+
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const findMedia = (section, mediaId) => {
+    if (!mediaId) return null;
+    const gallery = section.querySelector('[data-gallery]');
+    if (!gallery) return null;
+    return [...gallery.children].find(slide => slide.id === `Media-${mediaId}`) || null;
+  };
+  const syncGallery = (section, mediaId, smooth = false) => {
+    const gallery = section?.querySelector('[data-gallery]');
+    const target = findMedia(section, mediaId || section?.dataset.selectedMedia);
+    if (!gallery || !target) return;
+    const index = [...gallery.children].indexOf(target);
+    const move = () => gallery.scrollTo({ left: index * gallery.clientWidth, behavior: smooth && !reduced.matches ? 'smooth' : 'auto' });
+    requestAnimationFrame(() => requestAnimationFrame(move));
+    section.querySelectorAll('[data-media-link]').forEach(link => {
+      if (link.dataset.mediaLink === (mediaId || section.dataset.selectedMedia)) link.setAttribute('aria-current', 'true');
+      else link.removeAttribute('aria-current');
+    });
+  };
+  const updateVariant = input => {
+    const section = input.closest('[data-product-section]');
+    if (!section) return;
+    if (section.querySelector('[name="selling_plan"]')) {
+      const url = new URL(section.dataset.productUrl, location.origin);
+      url.searchParams.set('variant', input.value);
+      location.assign(url);
+      return;
+    }
+    const price = section.querySelector('.product-price');
+    if (price) {
+      price.textContent = input.dataset.price || '';
+      if (input.dataset.compare) {
+        price.append(' ');
+        const compare = document.createElement('s');
+        compare.textContent = input.dataset.compare;
+        price.append(compare);
+      }
+    }
+    const add = section.querySelector('[data-add-button]');
+    const addLabel = section.querySelector('[data-add-label]');
+    const available = input.dataset.available === 'true';
+    if (add) add.disabled = !available;
+    if (addLabel) addLabel.textContent = available ? {{ 'product.add' | t | json }} : {{ 'product.sold_out' | t | json }};
+    const quantity = section.querySelector('[name="quantity"]');
+    if (quantity) {
+      quantity.min = input.dataset.min || '1';
+      quantity.step = input.dataset.step || '1';
+      if (input.dataset.max) quantity.max = input.dataset.max; else quantity.removeAttribute('max');
+      const min = Number(quantity.min || 1);
+      const max = quantity.max ? Number(quantity.max) : Infinity;
+      quantity.value = String(Math.min(max, Math.max(min, Number(quantity.value) || min)));
+    }
+    const mediaId = input.dataset.mediaId || '';
+    if (mediaId) section.dataset.selectedMedia = mediaId;
+    syncGallery(section, mediaId, true);
+    const historyUrl = new URL(location.href);
+    historyUrl.searchParams.set('variant', input.value);
+    history.replaceState({}, '', historyUrl);
+  };
+
+  document.addEventListener('change', event => {
+    if (event.target.matches('[data-variant-radio]')) updateVariant(event.target);
+  });
+  document.querySelectorAll('[data-product-section]').forEach(section => syncGallery(section));
+})();
+</script>
 <script type="application/ld+json">{{ product | structured_data }}</script>
 {% schema %}
 {"name":"Product","settings":[{"type":"checkbox","id":"buy_now","label":"Show accelerated checkout","default":false}]}
