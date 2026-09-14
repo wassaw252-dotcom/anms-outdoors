@@ -8,7 +8,9 @@
 {% if page_description %}<meta name="description" content="{{ page_description | escape }}">{% endif %}
 <meta name="theme-color" content="#08140e">
 {{ 'theme.css' | asset_url | stylesheet_tag }}
+{{ 'claude-motion.css' | asset_url | stylesheet_tag }}
 <script src="{{ 'theme.js' | asset_url }}" defer></script>
+<script src="{{ 'claude-motion.js' | asset_url }}" defer></script>
 <script id="ThemeStrings" type="application/json">{% assign string_keys = 'error,added,updated,saved,removed,storage,loading,cart_error,sound_on,sound_off,sound_error,unavailable,remove,retry,saved_error' | split: ',' %}{ {% for key in string_keys %}{% assign locale_key = 'js.' | append: key %}{{ key | json }}:{{ locale_key | t | json }}{% unless forloop.last %},{% endunless %}{% endfor %} }</script>
 {{ content_for_header }}
 </head>
