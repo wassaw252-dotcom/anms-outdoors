@@ -50,8 +50,18 @@ a.category:hover .category-visual img,a.pathway:hover>.cover,.product-card:hover
 @media(max-width:1099px){:root{--header:64px}}
 @media(max-width:767px){.page-collection .collection-hero h1,.page-page main h1,.page-search main h1,.page-product .product-info h1,.page-404 main h1,.page-list-collections main h1,.page-cart main h1,.editorial-hero h1{font-size:clamp(2rem,10vw,3rem)}}
 
-/* Sync ONLY top navigation text size with ANM’s OUTDOORS — Claude Preview. */
-.desktop-nav>a,.mega>summary{font-size:1rem;line-height:1}
+/* Keep SHOP / EXPLORE / ABOUT using the approved ANM display font on every page, not only the homepage. */
+.desktop-nav>a,.mega>summary{
+  font-family:'ANM Display',sans-serif;
+  font-weight:400;
+  font-style:normal;
+  text-transform:uppercase;
+  letter-spacing:-.01em;
+  transform:skewX(-9deg);
+  transform-origin:center;
+  font-size:1rem;
+  line-height:1
+}
 @media(min-width:1100px){.desktop-nav>a,.mega>summary{font-size:1.08rem}}
 
 @media(prefers-reduced-motion:reduce){
