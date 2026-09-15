@@ -1,7 +1,15 @@
-<section id="StoreStart" class="story-banner" tabindex="-1" aria-labelledby="StoryTitle">
-{% if section.settings.image %}{{ section.settings.image | image_url: width: 2000 | image_tag: loading: 'lazy', widths: '640, 1000, 1600, 2000', sizes: '100vw', class: 'cover' }}{% else %}<img class="cover" src="{{ 'anm-campsite.jpg' | asset_url }}" width="1536" height="1024" alt="" loading="lazy">{% endif %}
-<div class="wrap story-content"><span class="eyebrow">{{ 'home.out_there' | t }}</span><h2 id="StoryTitle">{{ 'home.brighter' | t }}</h2><p>{{ 'home.brighter_copy' | t }}</p><a class="button" href="{{ collections['all-gear'].url | default: routes.all_products_collection_url }}">{{ 'home.shop_all' | t }} {% render 'icon', name: 'arrow' %}</a></div><p class="story-aside">{{ 'home.same_trails' | t }}</p>
+{{ 'home-journey.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'home-journey.js' | asset_url }}" defer></script>
+{% if section.settings.image %}<style>:root{--anm-journey-bg:url('{{ section.settings.image | image_url: width: 2400 }}')}</style>{% endif %}
+<section id="StoreStart" class="story-banner story-banner--journey" tabindex="-1" aria-labelledby="StoryTitle">
+  <div class="wrap story-content">
+    <span class="eyebrow">CHASE LESS NOISE.</span>
+    <h2 id="StoryTitle">FIND MORE LIFE.</h2>
+    <p>For the weekends that bring us together, and the quiet moments that stay with us.</p>
+    <a class="button" href="{{ collections['all-gear'].url | default: routes.all_products_collection_url }}">{{ 'home.shop_all' | t }} {% render 'icon', name: 'arrow' %}</a>
+  </div>
+  <p class="story-aside">{{ 'home.same_trails' | t }}</p>
 </section>
 {% schema %}
-{"name":"Brighter tomorrow","settings":[{"type":"image_picker","id":"image","label":"Landscape image"}],"presets":[{"name":"Brighter tomorrow"}]}
+{"name":"Brighter tomorrow","settings":[{"type":"image_picker","id":"image","label":"Static journey background"}],"presets":[{"name":"Brighter tomorrow"}]}
 {% endschema %}
