@@ -1,0 +1,20 @@
+{% doc %}
+  Compact product card for Shop by Adventure.
+  @param {product} product - Product to display
+  @param {boolean} [clone] - Non-interactive duplicate used for seamless autoplay
+{% enddoc %}
+<a class="sba-product" href="{{ product.url }}"{% if clone %} tabindex="-1" aria-hidden="true"{% endif %}>
+  <div class="sba-product-media">
+    {% if product.featured_image %}
+      {{ product.featured_image | image_url: width: 900 | image_tag: widths: '320, 480, 640, 900', sizes: '(min-width: 990px) 24vw, 84vw', loading: 'lazy', alt: product.title }}
+    {% else %}
+      <span class="sba-image-empty">{% render 'icon', name: 'tent' %}</span>
+    {% endif %}
+    {% if product.compare_at_price > product.price %}<span class="sba-badge">Sale</span>{% endif %}
+  </div>
+  <div class="sba-product-info">
+    <h4>{{ product.title | escape }}</h4>
+    <p class="sba-price">{% if product.price_varies %}From {% endif %}{{ product.price | money_with_currency }}{% if product.compare_at_price > product.price %} <s>{{ product.compare_at_price | money_with_currency }}</s>{% endif %}</p>
+    <span class="sba-product-link">View product</span>
+  </div>
+</a>
