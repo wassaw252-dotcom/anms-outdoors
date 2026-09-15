@@ -1,4 +1,145 @@
-<section class="section wrap narrow"><h1>{{ page.title | escape }}</h1><div class="richtext">{{ page.content }}</div></section>
+{% if page.handle == 'anms-outdoors-challenge' %}
+  <section class="challenge-page-hero" aria-labelledby="ChallengeTitle">
+    <div class="challenge-page-lockup">
+      <img
+        class="challenge-page-logo"
+        src="{{ 'anms-challenge-logo.webp' | asset_url }}"
+        alt="ANM’s OUTDOORS"
+        width="345"
+        height="225"
+        loading="eager"
+      >
+      <div class="challenge-page-title-row">
+        <h1 id="ChallengeTitle">CHALLENGE</h1>
+        <span class="challenge-accepted-mark" aria-hidden="true">
+          <span class="challenge-ring">
+            <svg viewBox="0 0 24 24" role="presentation">
+              <path class="challenge-check" d="M7 12.5l3.1 3.1L17.5 8.5"/>
+            </svg>
+          </span>
+          <span class="challenge-ray challenge-ray--one"></span>
+          <span class="challenge-ray challenge-ray--two"></span>
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .challenge-page-hero{
+      display:flex;
+      justify-content:center;
+      align-items:flex-start;
+      padding:clamp(38px,5.2vw,62px) 20px clamp(32px,4vw,48px);
+      text-align:center;
+      overflow:hidden;
+    }
+    .challenge-page-lockup{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      width:min(100%,560px);
+      margin-inline:auto;
+    }
+    .challenge-page-logo{
+      display:block;
+      width:clamp(150px,15vw,195px);
+      height:auto;
+      object-fit:contain;
+    }
+    .challenge-page-title-row{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:clamp(10px,1vw,14px);
+      margin-top:12px;
+    }
+    .challenge-page-title-row h1{
+      margin:0;
+      color:var(--cream);
+      font-family:'ANM Display',sans-serif;
+      font-size:clamp(2.2rem,3.3vw,3.35rem);
+      font-weight:400;
+      line-height:.95;
+      letter-spacing:-.01em;
+      text-transform:uppercase;
+      transform:skewX(-9deg);
+      transform-origin:center;
+    }
+    .challenge-accepted-mark{
+      position:relative;
+      width:clamp(32px,2.6vw,40px);
+      aspect-ratio:1;
+      display:inline-grid;
+      place-items:center;
+      flex:0 0 auto;
+    }
+    .challenge-ring{
+      width:82%;
+      aspect-ratio:1;
+      border:1.5px solid var(--gold);
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      animation:challenge-pulse 2.8s ease-in-out infinite;
+    }
+    .challenge-ring svg{width:57%;height:57%;overflow:visible}
+    .challenge-check{
+      fill:none;
+      stroke:var(--cream);
+      stroke-width:2;
+      stroke-linecap:round;
+      stroke-linejoin:round;
+      stroke-dasharray:18;
+      stroke-dashoffset:18;
+      animation:challenge-check 2.8s cubic-bezier(.22,.61,.36,1) infinite;
+    }
+    .challenge-ray{
+      position:absolute;
+      display:block;
+      width:8px;
+      height:1.5px;
+      background:var(--gold);
+      border-radius:99px;
+      opacity:0;
+      transform-origin:left center;
+      animation:challenge-ray 2.8s ease-out infinite;
+    }
+    .challenge-ray--one{right:-2px;top:7px;transform:rotate(-35deg)}
+    .challenge-ray--two{right:-4px;top:15px;transform:rotate(0deg)}
+    @keyframes challenge-check{
+      0%,18%{stroke-dashoffset:18;opacity:0}
+      28%{opacity:1}
+      45%,82%{stroke-dashoffset:0;opacity:1}
+      100%{stroke-dashoffset:0;opacity:.55}
+    }
+    @keyframes challenge-pulse{
+      0%,22%,100%{transform:scale(.94);opacity:.72}
+      38%,58%{transform:scale(1);opacity:1}
+      72%{transform:scale(.97);opacity:.85}
+    }
+    @keyframes challenge-ray{
+      0%,34%,72%,100%{opacity:0}
+      43%,58%{opacity:1}
+    }
+    @media(max-width:767px){
+      .challenge-page-hero{
+        padding:32px 18px 38px;
+      }
+      .challenge-page-logo{width:clamp(140px,39vw,175px)}
+      .challenge-page-title-row{margin-top:10px;gap:10px}
+      .challenge-page-title-row h1{font-size:clamp(2.05rem,9vw,2.8rem)}
+      .challenge-accepted-mark{width:32px}
+    }
+    @media(prefers-reduced-motion:reduce){
+      .challenge-ring,.challenge-check,.challenge-ray{animation:none!important}
+      .challenge-check{stroke-dashoffset:0;opacity:1}
+      .challenge-ring{transform:none;opacity:1}
+      .challenge-ray{opacity:.8}
+    }
+  </style>
+{% else %}
+  <section class="section wrap narrow"><h1>{{ page.title | escape }}</h1><div class="richtext">{{ page.content }}</div></section>
+{% endif %}
 {% schema %}
 {"name":"Page","settings":[]}
 {% endschema %}
