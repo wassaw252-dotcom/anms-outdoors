@@ -8,6 +8,7 @@
     assign sba_background_url = section.settings.background_image | image_url: width: 2400
   endif
 %}
+
 <section id="ShopByAdventure-{{ section.id }}" class="section sba-section" style="--sba-scene:url('{{ sba_background_url }}')" aria-labelledby="ShopByAdventureTitle-{{ section.id }}">
   <div class="wrap">
     <div class="sba-heading">
@@ -49,7 +50,11 @@
 
           <div class="sba-panel sba-panel--{{ category_handle }}">
             <div class="sba-panel-head">
-              <div><h3>{{ category_label | escape }}</h3><p>Featured picks from this collection.</p></div>
+              <div>
+                <span class="sba-panel-kicker">SHOP BY ADVENTURE</span>
+                <h3>{{ category_label | escape }}</h3>
+                <p>Featured picks for your next adventure.</p>
+              </div>
               <a class="sba-view-all" href="{{ category_url }}">View all</a>
             </div>
 
@@ -65,11 +70,63 @@
                   {% endif %}
                 </div>
               </div>
+              <div class="sba-swipe-hint" aria-hidden="true">
+                <span>↔</span> Swipe products <span class="sba-hint-dot">•</span> Scroll page <span>↓</span>
+              </div>
             {% else %}
               <div class="sba-empty"><span class="eyebrow">COMING SOON</span><h4>More gear is on the way.</h4><p>This category will automatically show its featured products here once products are added.</p></div>
             {% endif %}
           </div>
         {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <div class="sba-why">
+    <div class="wrap sba-why-wrap">
+      <div class="sba-why-head">
+        <span class="sba-why-eyebrow">OUR PURPOSE</span>
+        <h2>Why ANM’s OUTDOORS</h2>
+        <p>We’re not just here to sell gear — we’re here to inspire your next escape.</p>
+      </div>
+
+      <div class="sba-why-grid">
+        <article class="sba-why-card">
+          <span class="sba-why-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none"><path d="M24 4 39 10v11c0 10-6.2 17.7-15 23-8.8-5.3-15-13-15-23V10L24 4Z" stroke="currentColor" stroke-width="2.5"/><path d="m17 24 5 5 10-12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <div><h3>Trusted Outdoor Gear</h3><p>Carefully selected products for camping, comfort and outdoor living.</p></div>
+        </article>
+
+        <article class="sba-why-card">
+          <span class="sba-why-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none"><circle cx="18" cy="17" r="6" stroke="currentColor" stroke-width="2.5"/><circle cx="32" cy="18" r="5" stroke="currentColor" stroke-width="2.5"/><path d="M7 39v-5c0-6 4.5-10 11-10s11 4 11 10v5M28 27c7 0 12 3.6 12 9v3" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+          </span>
+          <div><h3>Made for Real Moments</h3><p>From family cookouts to quiet lakeside mornings — every trip tells a story.</p></div>
+        </article>
+
+        <article class="sba-why-card">
+          <span class="sba-why-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none"><path d="m5 39 13-21 7 10 5-8 13 19H5Z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><path d="m17 39 8-11 6 11" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/></svg>
+          </span>
+          <div><h3>Adventure Starts Here</h3><p>Discover simple ways to spend more time outside and less time overthinking.</p></div>
+        </article>
+
+        <article class="sba-why-card sba-why-card--challenge">
+          <span class="sba-prize-badge">WIN RM5,000</span>
+          <span class="sba-why-icon sba-why-icon--gold" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none"><path d="M15 7h18v8c0 8-3.8 14-9 14s-9-6-9-14V7Z" stroke="currentColor" stroke-width="2.5"/><path d="M15 11H8v4c0 6 3.7 9 9 9M33 11h7v4c0 6-3.7 9-9 9M24 29v7M16 41h16M19 36h10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+          </span>
+          <div>
+            <h3>Join &amp; Win RM5,000</h3>
+            <p>Spend RM299, create your camping video, and stand a chance to win the grand prize.</p>
+            {% if section.settings.challenge_url != blank %}
+              <a class="sba-why-cta" href="{{ section.settings.challenge_url }}">How to Join</a>
+            {% else %}
+              <span class="sba-why-cta sba-why-cta--disabled">How to Join</span>
+            {% endif %}
+          </div>
+        </article>
       </div>
     </div>
   </div>
@@ -194,7 +251,8 @@
   "settings": [
     {"type":"text","id":"heading","label":"Heading","default":"Shop by Adventure"},
     {"type":"text","id":"subheading","label":"Subheading","default":"Choose a category and discover our best picks."},
-    {"type":"image_picker","id":"background_image","label":"Cinematic background image"}
+    {"type":"image_picker","id":"background_image","label":"Cinematic background image"},
+    {"type":"url","id":"challenge_url","label":"Challenge page link"}
   ],
   "presets": [{"name":"Shop by adventure"}]
 }
