@@ -1,592 +1,251 @@
 {% if page.handle == 'anms-outdoors-challenge' %}
-  <div class="anm-challenge-page">
-    <section class="anm-challenge-hero" aria-labelledby="AnmChallengeTitle">
-      <div class="anm-challenge-hero__shade"></div>
-      <div class="anm-challenge-shell anm-challenge-hero__inner">
-        <div class="anm-challenge-brand-lockup" role="img" aria-label="Your next escape starts here. Built for the Wild. Disconnect from the noise. Reconnect with nature."></div>
+  {{ 'challenge-experience.css' | asset_url | stylesheet_tag }}
 
-        <div class="anm-challenge-title-row">
-          <h1 id="AnmChallengeTitle">CHALLENGE</h1>
-          <span class="anm-challenge-accepted" aria-hidden="true">
-            <span class="anm-challenge-accepted__ring">
-              <svg viewBox="0 0 24 24" role="presentation">
-                <path d="M7 12.5l3.1 3.1L17.5 8.5"/>
-              </svg>
-            </span>
-            <span class="anm-challenge-accepted__ray anm-challenge-accepted__ray--1"></span>
-            <span class="anm-challenge-accepted__ray anm-challenge-accepted__ray--2"></span>
+  <div
+    id="AnmChallengeExperience"
+    class="cx"
+    style="--cx-hero:url('{{ 'anm-campsite.jpg' | asset_url }}')"
+  >
+    <section class="cx-hero" aria-labelledby="ChallengeExperienceTitle">
+      <div class="cx-shell cx-hero__inner">
+        <div class="cx-brand">
+          <img
+            src="{{ 'anms-contest-brand.jpg' | asset_url }}"
+            alt="Your next escape starts here. Built for the Wild. Disconnect from the noise. Reconnect with nature."
+            width="584"
+            height="410"
+          >
+        </div>
+
+        <div class="cx-title">
+          <h1 id="ChallengeExperienceTitle">CHALLENGE</h1>
+          <span class="cx-check" aria-label="Challenge accepted">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6.5 12.5 3.3 3.3 7.8-8"/></svg>
           </span>
         </div>
 
-        <p class="anm-challenge-kicker">YOUR ADVENTURE. OUR STORY.</p>
+        <div class="cx-prize">RM5,000 GRAND PRIZE</div>
+        <p class="cx-storyline">Your Adventure. Our Story.</p>
 
-        <div class="anm-challenge-prize">
-          <span class="anm-challenge-prize__amount">RM5,000</span>
-          <span class="anm-challenge-prize__label">GRAND PRIZE</span>
-        </div>
-
-        <p class="anm-challenge-hero__copy">
-          Share a real outdoor memory. Tell your story. Selected entries may become part of
-          ANM’s OUTDOORS campaigns, social content and advertising — inspiring more people to get outside.
-        </p>
-
-        <div class="anm-challenge-hero__actions">
-          <a class="anm-challenge-btn anm-challenge-btn--gold" href="#challenge-entry-options">ACCEPT THE CHALLENGE <span aria-hidden="true">→</span></a>
-          <a class="anm-challenge-btn anm-challenge-btn--ghost" href="/collections/all">SHOP GEAR</a>
-        </div>
-      </div>
-    </section>
-
-    <section id="challenge-entry-options" class="anm-challenge-section anm-challenge-section--forest">
-      <div class="anm-challenge-shell">
-        <div class="anm-challenge-section-head anm-challenge-section-head--light">
-          <p class="anm-challenge-eyebrow">TWO WAYS TO ENTER</p>
-          <h2>Choose your way into the wild.</h2>
-          <p>Already have your own gear? Join directly. Need gear for the adventure? Your challenge entry is included when you spend RM299 or more.</p>
-        </div>
-
-        <div class="anm-challenge-entry-grid">
-          <article class="anm-challenge-entry-card anm-challenge-entry-card--dark">
-            <div class="anm-challenge-entry-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 48 48"><path d="M24 6 7 36h34L24 6Zm0 8 8.6 15H15.4L24 14Zm-11 22 7-9 4 5 4-4 7 8H13Z"/></svg>
-            </div>
-            <p class="anm-challenge-entry-card__tag">NO PURCHASE OF GEAR REQUIRED</p>
-            <h3>Adventure Entry <span>RM150</span></h3>
-            <ul>
-              <li><span>✓</span> Pay the RM150 challenge entry fee.</li>
-              <li><span>✓</span> Create a video from your real outdoor adventure.</li>
-              <li><span>✓</span> Start with the official ANM’s OUTDOORS intro.</li>
-              <li><span>✓</span> Complete the required activity moments.</li>
-              <li><span>✓</span> Edit and submit your own story.</li>
-            </ul>
-            <a class="anm-challenge-btn anm-challenge-btn--gold anm-challenge-btn--card" href="#challenge-rules">JOIN ADVENTURE ENTRY <span aria-hidden="true">→</span></a>
-          </article>
-
-          <article class="anm-challenge-entry-card anm-challenge-entry-card--cream">
-            <div class="anm-challenge-entry-card__media">
-              <img src="{{ 'anm-category-tents.webp' | asset_url }}" alt="ANM’s OUTDOORS camping gear and shelter" loading="lazy" width="900" height="900">
-            </div>
-            <p class="anm-challenge-entry-card__tag">BEST VALUE</p>
-            <h3>Gear Entry <span>Spend RM299+</span></h3>
-            <ul>
-              <li><span>✓</span> Buy ANM’s OUTDOORS gear worth RM299 or more.</li>
-              <li><span>✓</span> Your challenge entry is included.</li>
-              <li><span>✓</span> Take your gear into a real outdoor adventure.</li>
-              <li><span>✓</span> Complete the activity moments.</li>
-              <li><span>✓</span> Create and submit your video.</li>
-            </ul>
-            <a class="anm-challenge-btn anm-challenge-btn--green anm-challenge-btn--card" href="/collections/all">SHOP &amp; JOIN <span aria-hidden="true">→</span></a>
-          </article>
-        </div>
-
-        <div class="anm-challenge-duration">
-          <span></span>
-          <strong>45-DAY CHALLENGE</strong>
-          <span></span>
-          <small>EXPLORE · CREATE · SHARE · MAKE IT COUNT</small>
-        </div>
-      </div>
-    </section>
-
-    <section class="anm-challenge-section anm-challenge-section--cream" aria-labelledby="AnmHowTitle">
-      <div class="anm-challenge-shell">
-        <div class="anm-challenge-section-head">
-          <p class="anm-challenge-eyebrow">SIMPLE STEPS. A REAL STORY.</p>
-          <h2 id="AnmHowTitle">How It Works</h2>
-        </div>
-
-        <div class="anm-challenge-steps">
-          <article class="anm-challenge-step">
-            <div class="anm-challenge-step__number">01</div>
-            <div class="anm-challenge-step__icon" aria-hidden="true">
-              <svg viewBox="0 0 48 48"><circle cx="17" cy="18" r="6"/><circle cx="31" cy="18" r="6"/><path d="M5 39c1-8 6-12 12-12s11 4 12 12H5Zm16 0c.8-6.3 4.7-10.3 10-11.5 6.2.7 10.9 4.7 12 11.5H21Z"/></svg>
-            </div>
-            <h3>Join</h3>
-            <p>Choose RM150 Adventure Entry or spend RM299+ on gear to have your challenge entry included.</p>
-          </article>
-
-          <article class="anm-challenge-step">
-            <div class="anm-challenge-step__number">02</div>
-            <div class="anm-challenge-step__icon" aria-hidden="true">
-              <svg viewBox="0 0 48 48"><path d="M24 5 4 39h40L24 5Zm0 11 8 14-5-3-3 4-4-5-6 4 10-14Z"/></svg>
-            </div>
-            <h3>Adventure</h3>
-            <p>Get outside, complete the activity moments and capture the parts you will actually want to remember.</p>
-          </article>
-
-          <article class="anm-challenge-step">
-            <div class="anm-challenge-step__number">03</div>
-            <div class="anm-challenge-step__icon" aria-hidden="true">
-              <svg viewBox="0 0 48 48"><rect x="5" y="11" width="27" height="26" rx="4"/><path d="m32 19 11-7v24l-11-7V19Z"/></svg>
-            </div>
-            <h3>Edit &amp; Submit</h3>
-            <p>Start with the official ANM’s OUTDOORS intro, then make the rest of the adventure unmistakably yours.</p>
-          </article>
-
-          <article class="anm-challenge-step">
-            <div class="anm-challenge-step__number">04</div>
-            <div class="anm-challenge-step__icon" aria-hidden="true">
-              <svg viewBox="0 0 48 48"><path d="M14 6h20v8c0 8-4 14-10 16-6-2-10-8-10-16V6Z"/><path d="M14 11H7v4c0 7 4 10 10 10M34 11h7v4c0 7-4 10-10 10M20 30v6h-6v6h20v-6h-6v-6"/></svg>
-            </div>
-            <h3>Win</h3>
-            <p>Stand a chance to win RM5,000 and have your story featured in future ANM’s OUTDOORS campaigns.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="anm-challenge-memory" aria-labelledby="AnmMemoryTitle">
-      <div class="anm-challenge-memory__overlay"></div>
-      <div class="anm-challenge-shell anm-challenge-memory__inner">
-        <p class="anm-challenge-eyebrow">MORE THAN GEAR</p>
-        <h2 id="AnmMemoryTitle">Good gear. Good people.<br>Better memories.</h2>
-        <p>It’s not just about where you go. It’s about who you share it with — and the story you bring home.</p>
-      </div>
-    </section>
-
-    <section class="anm-challenge-section anm-challenge-section--paper" aria-labelledby="AnmWhyTitle">
-      <div class="anm-challenge-shell">
-        <div class="anm-challenge-story-grid">
-          <div class="anm-challenge-story-image">
-            <img src="{{ 'anm-campsite.jpg' | asset_url }}" alt="Outdoor campsite experience" loading="lazy" width="1600" height="1000">
+        <div class="cx-meta" aria-label="Challenge highlights">
+          <div class="cx-meta__item">
+            <span class="cx-meta__icon" aria-hidden="true">
+              <svg viewBox="0 0 28 28"><rect x="4" y="6" width="20" height="18" rx="2"/><path d="M8 3v6M20 3v6M4 11h20M9 15h3M15 15h3M9 19h3M15 19h3"/></svg>
+            </span>
+            <strong>45 DAYS</strong><small>CHALLENGE PERIOD</small>
           </div>
-          <div class="anm-challenge-story-copy">
-            <p class="anm-challenge-eyebrow">WHY WE CREATED THIS CHALLENGE</p>
-            <h2 id="AnmWhyTitle">Your memory can inspire someone else’s next escape.</h2>
-            <p>
-              ANM’s OUTDOORS was never meant to be only about selling outdoor gear. Some of the best memories happen outside:
-              a first camping trip, a hard climb, cooking together, getting caught in the rain, laughing around a fire, or simply
-              getting away from the noise for a while.
-            </p>
-            <p>
-              This challenge is our way of collecting those real moments. We want your adventure, your people and your story —
-              not a perfect commercial.
-            </p>
-            <blockquote>
-              “You’re not just entering a contest. You’re sharing a memory that could become part of the ANM’s OUTDOORS story.”
-            </blockquote>
-            <p class="anm-challenge-story-note">
-              Selected entries may be edited, reposted and featured in ANM’s OUTDOORS organic content, campaigns and paid advertising,
-              under the permissions explained in the official Challenge Terms.
-            </p>
+          <div class="cx-meta__item">
+            <span class="cx-meta__icon" aria-hidden="true">
+              <svg viewBox="0 0 28 28"><path d="M4 13 13 4h9l2 2v9l-9 9L4 13Z"/><circle cx="19" cy="9" r="1.6"/></svg>
+            </span>
+            <strong>RM150</strong><small>ENTRY</small>
+          </div>
+          <div class="cx-meta__item">
+            <span class="cx-meta__icon" aria-hidden="true">
+              <svg viewBox="0 0 28 28"><path d="M3 5h3l2.6 12h12.8l2.1-8H8M11 22a1.8 1.8 0 1 0 0 .1M20 22a1.8 1.8 0 1 0 0 .1"/></svg>
+            </span>
+            <strong>RM299+</strong><small>GEAR ENTRY</small>
           </div>
         </div>
+
+        <a class="cx-btn cx-btn--gold" href="#ChallengeHub" data-cx-open="join">ACCEPT THE CHALLENGE <span aria-hidden="true">→</span></a>
       </div>
+
+      <span class="cx-handnote cx-handnote--left" aria-hidden="true">More<br>Life<br>Out Here</span>
+      <span class="cx-handnote cx-handnote--right" aria-hidden="true">Real People.<br>Brighter Stories.</span>
     </section>
 
-    <section class="anm-challenge-section anm-challenge-section--cream" aria-labelledby="AnmActivitiesTitle">
-      <div class="anm-challenge-shell">
-        <div class="anm-challenge-section-head">
-          <p class="anm-challenge-eyebrow">CAPTURE THE JOURNEY</p>
-          <h2 id="AnmActivitiesTitle">Required Activity Ideas</h2>
-          <p>Build your video around real outdoor moments like these. Final required activities will be listed in the official Challenge Brief.</p>
-        </div>
-
-        <div class="anm-challenge-activities">
-          <article class="anm-challenge-activity">
-            <div class="anm-challenge-activity__visual anm-challenge-activity__visual--image">
-              <img src="{{ 'anm-category-tents.webp' | asset_url }}" alt="" loading="lazy" width="700" height="700">
-            </div>
-            <h3>Camp Setup</h3>
-            <p>Pitch, prepare, build your base.</p>
-          </article>
-          <article class="anm-challenge-activity">
-            <div class="anm-challenge-activity__visual">
-              <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 6 7 51h50L32 6Zm0 14 9 16-6-4-4 6-5-7-8 6 14-17Z"/></svg>
-            </div>
-            <h3>Hiking</h3>
-            <p>Trail, climb, walk, explore.</p>
-          </article>
-          <article class="anm-challenge-activity">
-            <div class="anm-challenge-activity__visual">
-              <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M16 30h32v8c0 10-7 18-16 18s-16-8-16-18v-8Z"/><path d="M12 30h40M24 25c-5-6 4-8 0-14M36 25c-5-6 4-8 0-14"/></svg>
-            </div>
-            <h3>Cooking Outdoors</h3>
-            <p>Food tastes different outside.</p>
-          </article>
-          <article class="anm-challenge-activity">
-            <div class="anm-challenge-activity__visual">
-              <svg viewBox="0 0 64 64" aria-hidden="true"><rect x="7" y="13" width="50" height="38" rx="4"/><circle cx="43" cy="25" r="6"/><path d="m10 47 14-15 9 9 7-7 14 13"/></svg>
-            </div>
-            <h3>Nature Shot</h3>
-            <p>Show us the place around you.</p>
-          </article>
-          <article class="anm-challenge-activity">
-            <div class="anm-challenge-activity__visual">
-              <svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="23" cy="22" r="8"/><circle cx="43" cy="22" r="8"/><path d="M7 52c1-12 7-19 16-19s15 7 16 19H7Zm27 0c1-9 5-15 12-18 7 3 11 9 12 18H34Z"/></svg>
-            </div>
-            <h3>Group Moment</h3>
-            <p>Friends, family, people who matter.</p>
-          </article>
-          <article class="anm-challenge-activity">
-            <div class="anm-challenge-activity__visual anm-challenge-activity__visual--night">
-              <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 18 11 52h42L32 18Z"/><path d="M32 18v34M19 52l13-22 13 22"/><circle cx="49" cy="14" r="7"/><path d="M12 13h3M18 7v3M8 7l2 2"/></svg>
-            </div>
-            <h3>Night Camp Ambience</h3>
-            <p>Lanterns, firelight, quiet moments.</p>
-          </article>
-        </div>
+    <div id="ChallengeHub" class="cx-tabs-wrap">
+      <div class="cx-tabs" role="tablist" aria-label="Challenge sections">
+        <button class="cx-tab" type="button" role="tab" data-cx-tab="overview" aria-selected="false">OVERVIEW</button>
+        <button class="cx-tab is-active" type="button" role="tab" data-cx-tab="join" aria-selected="true">JOIN</button>
+        <button class="cx-tab" type="button" role="tab" data-cx-tab="activities" aria-selected="false">ACTIVITIES</button>
+        <button class="cx-tab" type="button" role="tab" data-cx-tab="judging" aria-selected="false">JUDGING</button>
+        <button class="cx-tab" type="button" role="tab" data-cx-tab="rules" aria-selected="false">RULES</button>
       </div>
-    </section>
+    </div>
 
-    <section id="challenge-rules" class="anm-challenge-section anm-challenge-section--forest" aria-labelledby="AnmRulesTitle">
-      <div class="anm-challenge-shell">
-        <div class="anm-challenge-section-head anm-challenge-section-head--light">
-          <p class="anm-challenge-eyebrow">CLEAR BEFORE YOU START</p>
-          <h2 id="AnmRulesTitle">FAQ &amp; Rules</h2>
-          <p>The final official Challenge Terms will control entry eligibility, dates, judging, permissions and prize fulfilment.</p>
-        </div>
+    <main class="cx-stage">
+      <div class="cx-shell cx-stage__inner">
+        <section class="cx-panel" data-cx-panel="overview" hidden aria-label="Challenge overview">
+          <div class="cx-overview">
+            <div class="cx-overview__card">
+              <p class="cx-kicker">THE ANM’s OUTDOORS CHALLENGE</p>
+              <h2 class="cx-heading">One escape. One story worth remembering.</h2>
+              <p class="cx-lede">We created this challenge for real outdoor memories — first trips, hard climbs, campsite laughs, quiet mornings and everything between. Capture yours, shape it into a short story and share it with us.</p>
+              <div class="cx-overview__stats">
+                <div class="cx-stat"><strong>RM5K</strong><span>GRAND PRIZE</span></div>
+                <div class="cx-stat"><strong>45</strong><span>DAYS</span></div>
+                <div class="cx-stat"><strong>2</strong><span>WAYS TO JOIN</span></div>
+              </div>
+            </div>
+            <div class="cx-cinematic">
+              <div>
+                <h3>Your Adventure.<br>Our Story.</h3>
+                <p>Selected stories may be featured in ANM’s OUTDOORS social content, campaigns and advertising under the permissions in the official Challenge Terms.</p>
+              </div>
+            </div>
+          </div>
+        </section>
 
-        <div class="anm-challenge-faq">
-          <details>
-            <summary>Who can join?<span aria-hidden="true">+</span></summary>
-            <div><p>Eligibility, age and location requirements will be stated clearly in the official Challenge Terms before entries open. Do not submit until you meet those requirements.</p></div>
-          </details>
-          <details>
-            <summary>How will the winner be chosen?<span aria-hidden="true">+</span></summary>
-            <div><p>This is intended as a judged creative challenge, not a random draw. The working judging framework is Story 30%, Adventure 25%, Creativity 25% and Brand Integration 20%, subject to the final Challenge Terms.</p></div>
-          </details>
-          <details>
-            <summary>Can ANM’s OUTDOORS use my video?<span aria-hidden="true">+</span></summary>
-            <div><p>You keep ownership of your original content. By submitting, you will be asked to grant ANM’s OUTDOORS a clear licence to edit, repost and use submitted or selected content in social media, brand campaigns and paid advertising as described in the official Challenge Terms.</p></div>
-          </details>
-          <details>
-            <summary>What must appear at the start of my video?<span aria-hidden="true">+</span></summary>
-            <div><p>Every valid entry should begin with the official ANM’s OUTDOORS challenge intro/logo clip supplied by us, followed by your own adventure story.</p></div>
-          </details>
-          <details>
-            <summary>What does RM299+ Gear Entry mean?<span aria-hidden="true">+</span></summary>
-            <div><p>A qualifying ANM’s OUTDOORS purchase of RM299 or more includes one challenge entry, subject to the final purchase window, proof-of-purchase and entry conditions in the official Challenge Terms.</p></div>
-          </details>
-          <details>
-            <summary>When do the 45 days start?<span aria-hidden="true">+</span></summary>
-            <div><p>The 45-day campaign period will begin on the official launch date shown in the final Challenge Terms. The exact opening and closing timestamps will be published before entries are accepted.</p></div>
-          </details>
-        </div>
+        <section class="cx-panel is-active" data-cx-panel="join" aria-label="Join the challenge">
+          <div class="cx-join-grid">
+            <div>
+              <p class="cx-kicker">GET STARTED</p>
+              <h2 class="cx-heading">CHOOSE YOUR PATH</h2>
+              <p class="cx-lede">Same destination. Different paths. Join the ANM’s OUTDOORS Challenge your way and be part of a community that lives for real adventures.</p>
+
+              <div class="cx-paths">
+                <article class="cx-path">
+                  <div class="cx-path__content">
+                    <div class="cx-path__icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24"><path d="m9 7 8 5-8 5V7Z"/></svg>
+                    </div>
+                    <h3>Adventure Entry <strong>RM150</strong></h3>
+                    <p>Join directly, create your outdoor adventure and submit an edited video story.</p>
+                    <a class="cx-btn cx-btn--gold" href="#cx-rules" data-cx-rules>JOIN WITH RM150 <span aria-hidden="true">→</span></a>
+                  </div>
+                </article>
+
+                <article class="cx-path cx-path--gear">
+                  <div class="cx-path__content">
+                    <div class="cx-path__icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24"><path d="M3 4h3l2 11h10l2-7H7M10 19h.01M18 19h.01"/></svg>
+                    </div>
+                    <h3>Gear Entry <strong>Spend RM299+</strong></h3>
+                    <p>Challenge entry is included when your qualifying ANM’s OUTDOORS gear purchase reaches RM299 or more.</p>
+                    <a class="cx-btn cx-btn--gold" href="/collections/all">SHOP GEAR &amp; JOIN <span aria-hidden="true">→</span></a>
+                  </div>
+                </article>
+              </div>
+
+              <div class="cx-activity-rail" aria-label="Challenge activity preview">
+                <article class="cx-activity"><div class="cx-activity__label"><svg viewBox="0 0 24 24"><path d="M12 3 3 20h18L12 3Zm0 6v11"/></svg>Camp Setup</div></article>
+                <article class="cx-activity"><div class="cx-activity__label"><svg viewBox="0 0 24 24"><path d="M12 3 4 20h16L12 3ZM8 20l4-8 4 8"/></svg>Hiking</div></article>
+                <article class="cx-activity"><div class="cx-activity__label"><svg viewBox="0 0 24 24"><path d="M5 11h14v3a7 7 0 0 1-14 0v-3ZM9 8c-2-3 2-3 0-6M15 8c-2-3 2-3 0-6"/></svg>Cooking Outdoors</div></article>
+                <article class="cx-activity"><div class="cx-activity__label"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="15" cy="10" r="2"/><path d="m4 18 6-6 3 3 3-3 4 5"/></svg>Nature Moment</div></article>
+                <article class="cx-activity"><div class="cx-activity__label"><svg viewBox="0 0 24 24"><circle cx="8" cy="8" r="3"/><circle cx="16" cy="8" r="3"/><path d="M2 20c1-6 3-9 6-9s5 3 6 9M10 20c1-5 3-8 6-8s5 3 6 8"/></svg>Friends &amp; Family</div></article>
+                <article class="cx-activity"><div class="cx-activity__label"><svg viewBox="0 0 24 24"><path d="M17 4a8 8 0 1 0 3 12 7 7 0 0 1-3-12Z"/></svg>Night Camp</div></article>
+              </div>
+            </div>
+
+            <div>
+              <div class="cx-how">
+                <div class="cx-how__title">HOW IT WORKS</div>
+                <div class="cx-steps">
+                  <div class="cx-step">
+                    <span class="cx-step__num">01</span>
+                    <div class="cx-step__icon"><svg viewBox="0 0 24 24"><path d="M7 3h8l4 4v14H7V3Zm8 0v5h4M10 12h6M10 16h6"/></svg></div>
+                    <strong>JOIN</strong><p>Choose your path and register.</p>
+                  </div>
+                  <div class="cx-step">
+                    <span class="cx-step__num">02</span>
+                    <div class="cx-step__icon"><svg viewBox="0 0 24 24"><path d="M12 3 3 20h18L12 3Zm0 6 4 7-3-2-2 3-2-3-3 2 6-7Z"/></svg></div>
+                    <strong>ADVENTURE</strong><p>Get outside and create real memories.</p>
+                  </div>
+                  <div class="cx-step">
+                    <span class="cx-step__num">03</span>
+                    <div class="cx-step__icon"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="m16 10 5-3v10l-5-3v-4Z"/></svg></div>
+                    <strong>EDIT &amp; SUBMIT</strong><p>Turn your moments into a short video.</p>
+                  </div>
+                  <div class="cx-step">
+                    <span class="cx-step__num">04</span>
+                    <div class="cx-step__icon"><svg viewBox="0 0 24 24"><path d="M7 3h10v5c0 5-2 8-5 9-3-1-5-4-5-9V3ZM7 6H3v2c0 3 2 5 5 5M17 6h4v2c0 3-2 5-5 5M12 17v3M8 21h8"/></svg></div>
+                    <strong>WIN</strong><p>Stand a chance to win RM5,000.</p>
+                  </div>
+                </div>
+              </div>
+
+              <article class="cx-story-card">
+                <div class="cx-story-card__image" aria-hidden="true"></div>
+                <div class="cx-story-card__copy">
+                  <h3>YOUR ADVENTURE. OUR STORY.</h3>
+                  <p>This isn’t just a contest. It’s a celebration of real people and real memories. Selected entries may be featured in ANM’s OUTDOORS campaigns because your story can inspire the next escape.</p>
+                  <span class="cx-story-card__script" aria-hidden="true">Real Adventures.<br>Real People.</span>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="cx-panel cx-activities-panel" data-cx-panel="activities" hidden aria-label="Challenge activities">
+          <p class="cx-kicker">CAPTURE THE JOURNEY</p>
+          <h2 class="cx-heading">CHALLENGE ACTIVITIES</h2>
+          <p class="cx-activities-copy">Build your entry around real outdoor moments. The final Challenge Brief will confirm the required moments, but this is the spirit we want to see: genuine adventure, people and place.</p>
+          <div class="cx-activity-rail">
+            <article class="cx-activity"><div class="cx-activity__label">△ Camp Setup</div></article>
+            <article class="cx-activity"><div class="cx-activity__label">↗ Hiking</div></article>
+            <article class="cx-activity"><div class="cx-activity__label">♨ Cooking Outdoors</div></article>
+            <article class="cx-activity"><div class="cx-activity__label">◉ Nature Moment</div></article>
+            <article class="cx-activity"><div class="cx-activity__label">● Friends &amp; Family</div></article>
+            <article class="cx-activity"><div class="cx-activity__label">☾ Night Camp</div></article>
+          </div>
+        </section>
+
+        <section class="cx-panel" data-cx-panel="judging" hidden aria-label="Challenge judging">
+          <div class="cx-judging-layout">
+            <div class="cx-judging-card">
+              <p class="cx-kicker">HOW THE WINNER IS CHOSEN</p>
+              <h2 class="cx-heading">MAKE THE STORY MATTER.</h2>
+              <div class="cx-score"><span class="cx-score__dot">01</span><div><strong>Story</strong><br><span>Emotion, clarity and a memorable journey.</span></div><span class="cx-score__pct">30%</span></div>
+              <div class="cx-score"><span class="cx-score__dot">02</span><div><strong>Adventure</strong><br><span>Real outdoor effort, experience and moments.</span></div><span class="cx-score__pct">25%</span></div>
+              <div class="cx-score"><span class="cx-score__dot">03</span><div><strong>Creativity</strong><br><span>How you frame, edit and tell the experience.</span></div><span class="cx-score__pct">25%</span></div>
+              <div class="cx-score"><span class="cx-score__dot">04</span><div><strong>Brand Integration</strong><br><span>Natural use of the official intro and challenge identity.</span></div><span class="cx-score__pct">20%</span></div>
+            </div>
+            <aside class="cx-judging-note">
+              <h3>Not a lucky draw.</h3>
+              <p>The RM5,000 Grand Prize is intended to be awarded through a <strong>skill-based judged challenge</strong>. We’re looking for the strongest story — not the biggest purchase or random chance. Final criteria and eligibility are governed by the official Challenge Terms.</p>
+            </aside>
+          </div>
+        </section>
+
+        <section id="cx-rules" class="cx-panel" data-cx-panel="rules" hidden aria-label="Challenge rules">
+          <div class="cx-rules-layout">
+            <div class="cx-rules-intro">
+              <p class="cx-kicker" style="color:#e9c777">NEED TO KNOW</p>
+              <h2 class="cx-heading" style="color:#fff">Before you enter.</h2>
+              <p>Keep the main experience simple. Open only what you need here. The complete official Challenge Terms will govern all entries before launch.</p>
+            </div>
+            <div class="cx-accordion">
+              <details>
+                <summary>Eligibility</summary>
+                <div class="cx-accordion__body">Entry requirements, age, territory, challenge dates and qualifying purchase conditions will be stated in the official Challenge Terms. Participants must satisfy those requirements before submitting.</div>
+              </details>
+              <details>
+                <summary>Video Rights</summary>
+                <div class="cx-accordion__body">You keep ownership of your original video. By entering, selected participants may grant ANM’s OUTDOORS the permissions described in the official Terms to edit, crop, repost and use submitted content in organic social, campaigns and paid advertising.</div>
+              </details>
+              <details>
+                <summary>How the winner is chosen</summary>
+                <div class="cx-accordion__body">Entries are intended to be judged on Story 30%, Adventure 25%, Creativity 25% and Brand Integration 20%. Final judging mechanics, tie-breaks and verification will be set out in the official Terms.</div>
+              </details>
+              <details>
+                <summary>Full Challenge Rules</summary>
+                <div class="cx-accordion__body">The final official Terms will include entry steps, submission format, dates, disqualification grounds, content permissions, judging, winner verification and prize fulfilment. This preview page is the campaign experience and is not a substitute for the final legal Terms.</div>
+              </details>
+            </div>
+          </div>
+        </section>
       </div>
-    </section>
+    </main>
 
-    <section class="anm-challenge-final-cta">
-      <div class="anm-challenge-final-cta__overlay"></div>
-      <div class="anm-challenge-shell anm-challenge-final-cta__inner">
-        <p class="anm-challenge-eyebrow">YOUR NEXT ESCAPE STARTS HERE.</p>
-        <h2>Ready to make it happen?</h2>
-        <p>Go outside. Make the memory. Tell the story.</p>
-        <div class="anm-challenge-hero__actions">
-          <a class="anm-challenge-btn anm-challenge-btn--gold" href="#challenge-entry-options">ACCEPT THE CHALLENGE <span aria-hidden="true">→</span></a>
-          <a class="anm-challenge-btn anm-challenge-btn--ghost" href="/collections/all">SHOP GEAR</a>
+    <div class="cx-sticky" aria-label="Join the challenge">
+      <div class="cx-shell cx-sticky__inner">
+        <div class="cx-sticky__brand">
+          <span class="cx-sticky__mountain" aria-hidden="true">⌁</span>
+          <div><strong>RM5,000 CHALLENGE</strong><span>Your Adventure. Our Story.</span></div>
         </div>
+        <a class="cx-btn cx-btn--gold" href="#ChallengeHub" data-cx-open="join">JOIN NOW <span aria-hidden="true">→</span></a>
       </div>
-    </section>
+    </div>
   </div>
 
-  <style>
-    .anm-challenge-page{
-      --challenge-ink:#11261d;
-      --challenge-forest:#153225;
-      --challenge-deep:#09140f;
-      --challenge-cream:#f4efe3;
-      --challenge-paper:#fbf7ed;
-      --challenge-gold:#e8a72e;
-      --challenge-gold-2:#ffbd45;
-      --challenge-line:rgba(244,239,227,.22);
-      --challenge-shadow:0 18px 50px rgba(4,12,8,.22);
-      color:var(--challenge-ink);
-      background:var(--challenge-cream);
-      overflow:hidden;
-      isolation:isolate;
-    }
-    .anm-challenge-page *{box-sizing:border-box}
-    .anm-challenge-page img{max-width:100%;display:block}
-    .anm-challenge-shell{width:min(1180px,calc(100% - 40px));margin-inline:auto}
-    .anm-challenge-hero{
-      position:relative;
-      min-height:700px;
-      display:grid;
-      place-items:center;
-      color:#fff;
-      text-align:center;
-      background-image:
-        linear-gradient(180deg,rgba(5,12,9,.28) 0%,rgba(5,12,9,.2) 32%,rgba(5,12,9,.76) 100%),
-        url('{{ 'anm-campsite.jpg' | asset_url }}');
-      background-size:cover;
-      background-position:center 54%;
-    }
-    .anm-challenge-hero__shade{
-      position:absolute;inset:0;
-      background:
-        radial-gradient(circle at 50% 22%,rgba(245,191,90,.15),transparent 29%),
-        linear-gradient(90deg,rgba(4,10,7,.35),transparent 28%,transparent 72%,rgba(4,10,7,.38));
-      pointer-events:none;
-    }
-    .anm-challenge-hero__inner{
-      position:relative;
-      z-index:1;
-      padding:44px 0 56px;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-    }
-    .anm-challenge-brand-lockup{
-      width:clamp(220px,27vw,360px);
-      aspect-ratio:584/410;
-      background-image:url('{{ 'anms-contest-brand.jpg' | asset_url }}');
-      background-size:cover;
-      background-repeat:no-repeat;
-      background-position:center;
-      border-radius:12px;
-      box-shadow:0 16px 40px rgba(0,0,0,.28);
-      margin-bottom:15px;
-    }
-    .anm-challenge-title-row{display:flex;align-items:center;justify-content:center;gap:11px}
-    .anm-challenge-title-row h1{
-      margin:0;color:#fff;
-      font-family:'ANM Display','Arial Narrow',Impact,sans-serif;
-      font-size:clamp(2.5rem,5.7vw,5rem);
-      line-height:.86;
-      letter-spacing:-.035em;
-      text-transform:uppercase;
-      text-shadow:0 3px 24px rgba(0,0,0,.42);
-      transform:skewX(-7deg);
-    }
-    .anm-challenge-accepted{position:relative;width:clamp(31px,3.4vw,46px);aspect-ratio:1;display:grid;place-items:center;flex:none}
-    .anm-challenge-accepted__ring{
-      width:85%;aspect-ratio:1;border:2px solid var(--challenge-gold-2);border-radius:50%;
-      display:grid;place-items:center;animation:anmChallengePulse 2.8s ease-in-out infinite;
-      box-shadow:0 0 22px rgba(255,189,69,.18);
-    }
-    .anm-challenge-accepted__ring svg{width:57%;height:57%}
-    .anm-challenge-accepted__ring path{
-      fill:none;stroke:#fff;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;
-      stroke-dasharray:18;stroke-dashoffset:18;animation:anmChallengeCheck 2.8s cubic-bezier(.22,.61,.36,1) infinite;
-    }
-    .anm-challenge-accepted__ray{
-      position:absolute;width:10px;height:2px;border-radius:4px;background:var(--challenge-gold-2);opacity:0;
-      transform-origin:left center;animation:anmChallengeRay 2.8s ease-out infinite
-    }
-    .anm-challenge-accepted__ray--1{right:-3px;top:7px;transform:rotate(-35deg)}
-    .anm-challenge-accepted__ray--2{right:-6px;top:18px}
-    .anm-challenge-kicker{
-      margin:15px 0 11px;
-      font-size:.74rem;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:#f9f2e4
-    }
-    .anm-challenge-prize{
-      display:inline-flex;flex-direction:column;align-items:center;
-      padding:12px 30px 14px;margin:0 0 16px;
-      background:linear-gradient(90deg,transparent,rgba(8,34,24,.94) 15%,rgba(8,34,24,.94) 85%,transparent);
-      min-width:min(440px,90vw);
-    }
-    .anm-challenge-prize__amount{
-      color:var(--challenge-gold-2);
-      font-family:Georgia,'Times New Roman',serif;
-      font-weight:800;font-size:clamp(2.7rem,5.8vw,4.9rem);line-height:.9;letter-spacing:-.035em;
-      text-shadow:0 3px 10px rgba(0,0,0,.25)
-    }
-    .anm-challenge-prize__label{margin-top:7px;font-weight:800;letter-spacing:.32em;font-size:clamp(.72rem,1.15vw,.95rem)}
-    .anm-challenge-hero__copy{
-      width:min(680px,92%);margin:0 auto 22px;
-      font-size:clamp(.92rem,1.2vw,1.05rem);line-height:1.55;color:rgba(255,255,255,.92)
-    }
-    .anm-challenge-hero__actions{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
-    .anm-challenge-btn{
-      min-height:46px;display:inline-flex;align-items:center;justify-content:center;gap:8px;
-      padding:0 21px;border-radius:999px;text-decoration:none!important;
-      font-size:.78rem;font-weight:900;letter-spacing:.035em;text-transform:uppercase;
-      transition:transform .2s ease,box-shadow .2s ease,background .2s ease,color .2s ease,border-color .2s ease;
-    }
-    .anm-challenge-btn:hover{transform:translateY(-2px)}
-    .anm-challenge-btn--gold{
-      color:#15261c!important;background:linear-gradient(135deg,var(--challenge-gold-2),var(--challenge-gold));
-      box-shadow:0 10px 26px rgba(232,167,46,.24);border:1px solid rgba(255,255,255,.18)
-    }
-    .anm-challenge-btn--ghost{color:#fff!important;border:1px solid rgba(255,255,255,.66);background:rgba(7,24,16,.28);backdrop-filter:blur(6px)}
-    .anm-challenge-btn--green{color:#fff!important;background:var(--challenge-forest);border:1px solid var(--challenge-forest)}
-    .anm-challenge-btn--card{width:100%;margin-top:auto}
-    .anm-challenge-section{padding:84px 0}
-    .anm-challenge-section--forest{
-      color:#fff;background:
-        radial-gradient(circle at 50% 0%,rgba(232,167,46,.08),transparent 32%),
-        linear-gradient(180deg,#132d22,#0c1f17)
-    }
-    .anm-challenge-section--cream{background:var(--challenge-cream)}
-    .anm-challenge-section--paper{background:var(--challenge-paper)}
-    .anm-challenge-section-head{text-align:center;max-width:760px;margin:0 auto 42px}
-    .anm-challenge-section-head--light{color:#fff}
-    .anm-challenge-section-head h2,.anm-challenge-story-copy h2,.anm-challenge-memory h2,.anm-challenge-final-cta h2{
-      margin:6px 0 12px;font-family:Georgia,'Times New Roman',serif;
-      font-size:clamp(2rem,4vw,3.6rem);line-height:1.05;letter-spacing:-.025em
-    }
-    .anm-challenge-section-head p:last-child{margin:0;line-height:1.65;opacity:.8}
-    .anm-challenge-eyebrow{
-      margin:0 0 8px!important;font-size:.74rem!important;font-weight:900!important;
-      letter-spacing:.23em!important;text-transform:uppercase!important;color:var(--challenge-gold)!important
-    }
-    .anm-challenge-entry-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-    .anm-challenge-entry-card{
-      position:relative;min-height:520px;padding:34px;border-radius:22px;
-      display:flex;flex-direction:column;overflow:hidden;box-shadow:var(--challenge-shadow);
-      border:1px solid rgba(255,255,255,.16)
-    }
-    .anm-challenge-entry-card--dark{background:linear-gradient(145deg,#173b2b,#0b2318);color:#fff}
-    .anm-challenge-entry-card--cream{background:#f6f0e3;color:var(--challenge-ink);border-color:rgba(17,38,29,.12)}
-    .anm-challenge-entry-card__icon{
-      width:72px;height:72px;border-radius:18px;background:rgba(232,167,46,.13);display:grid;place-items:center;margin-bottom:26px
-    }
-    .anm-challenge-entry-card__icon svg{width:44px;height:44px;fill:var(--challenge-gold)}
-    .anm-challenge-entry-card__media{
-      height:180px;margin:-34px -34px 26px;overflow:hidden;background:#d8d0bd
-    }
-    .anm-challenge-entry-card__media img{width:100%;height:100%;object-fit:cover;object-position:center 52%}
-    .anm-challenge-entry-card__tag{
-      width:max-content;max-width:100%;margin:0 0 8px;font-size:.67rem;font-weight:900;letter-spacing:.16em;
-      text-transform:uppercase;color:var(--challenge-gold)
-    }
-    .anm-challenge-entry-card h3{
-      margin:0 0 20px;font-family:Georgia,'Times New Roman',serif;font-size:clamp(1.55rem,2.4vw,2.15rem);line-height:1.15
-    }
-    .anm-challenge-entry-card h3 span{display:block;font-family:inherit;color:var(--challenge-gold);font-size:.82em;margin-top:5px}
-    .anm-challenge-entry-card ul{list-style:none;padding:0;margin:0 0 28px;display:grid;gap:13px}
-    .anm-challenge-entry-card li{display:flex;align-items:flex-start;gap:10px;line-height:1.45;font-size:.93rem}
-    .anm-challenge-entry-card li>span{
-      width:20px;height:20px;flex:0 0 20px;border-radius:50%;display:grid;place-items:center;
-      background:var(--challenge-gold);color:#102117;font-weight:900;font-size:.72rem;margin-top:1px
-    }
-    .anm-challenge-duration{
-      margin:48px auto 0;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:18px;
-      max-width:850px;text-align:center
-    }
-    .anm-challenge-duration>span{height:1px;background:rgba(255,255,255,.35)}
-    .anm-challenge-duration strong{font-size:clamp(1rem,2vw,1.35rem);letter-spacing:.22em}
-    .anm-challenge-duration small{grid-column:1/-1;letter-spacing:.28em;font-size:.62rem;opacity:.66}
-    .anm-challenge-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-    .anm-challenge-step{
-      position:relative;text-align:center;padding:28px 20px 24px;border-radius:18px;background:rgba(255,255,255,.43);
-      border:1px solid rgba(17,38,29,.08)
-    }
-    .anm-challenge-step__number{
-      position:absolute;top:16px;right:18px;font-size:.66rem;font-weight:900;letter-spacing:.12em;color:rgba(17,38,29,.35)
-    }
-    .anm-challenge-step__icon{
-      width:82px;height:82px;border-radius:50%;display:grid;place-items:center;margin:0 auto 19px;
-      background:#dfe0d2;color:var(--challenge-ink)
-    }
-    .anm-challenge-step__icon svg{width:45px;height:45px;fill:currentColor}
-    .anm-challenge-step h3{margin:0 0 8px;text-transform:uppercase;font-size:1rem;letter-spacing:.04em}
-    .anm-challenge-step p{margin:0;line-height:1.55;font-size:.88rem;opacity:.76}
-    .anm-challenge-memory{
-      position:relative;min-height:480px;display:grid;place-items:center;text-align:center;color:#fff;
-      background-image:url('{{ 'anm-campsite.jpg' | asset_url }}');background-size:cover;background-position:center 64%
-    }
-    .anm-challenge-memory__overlay{
-      position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,18,12,.82),rgba(5,18,12,.42),rgba(5,18,12,.74))
-    }
-    .anm-challenge-memory__inner{position:relative;z-index:1;padding:74px 0}
-    .anm-challenge-memory h2{font-size:clamp(2.4rem,5vw,4.4rem);text-shadow:0 4px 24px rgba(0,0,0,.36)}
-    .anm-challenge-memory p:last-child{max-width:620px;margin:16px auto 0;font-size:1.05rem;line-height:1.65;color:rgba(255,255,255,.88)}
-    .anm-challenge-story-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:54px;align-items:center}
-    .anm-challenge-story-image{
-      position:relative;border-radius:26px;overflow:hidden;aspect-ratio:4/5;box-shadow:var(--challenge-shadow)
-    }
-    .anm-challenge-story-image:after{
-      content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(5,17,11,.45))
-    }
-    .anm-challenge-story-image img{width:100%;height:100%;object-fit:cover}
-    .anm-challenge-story-copy p{line-height:1.7;margin:0 0 16px;color:rgba(17,38,29,.78)}
-    .anm-challenge-story-copy blockquote{
-      margin:26px 0;padding:2px 0 2px 22px;border-left:3px solid var(--challenge-gold);
-      font-family:Georgia,'Times New Roman',serif;font-size:clamp(1.2rem,2vw,1.55rem);line-height:1.45;color:var(--challenge-ink)
-    }
-    .anm-challenge-story-note{font-size:.88rem!important;padding:15px 16px;border-radius:12px;background:#efe7d5}
-    .anm-challenge-activities{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    .anm-challenge-activity{
-      background:#fff;border-radius:17px;padding:14px 14px 18px;border:1px solid rgba(17,38,29,.09);box-shadow:0 10px 25px rgba(17,38,29,.06)
-    }
-    .anm-challenge-activity__visual{
-      height:150px;border-radius:12px;background:linear-gradient(145deg,#dfe2d4,#bec8b7);display:grid;place-items:center;overflow:hidden
-    }
-    .anm-challenge-activity__visual svg{width:72px;height:72px;fill:none;stroke:var(--challenge-ink);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
-    .anm-challenge-activity__visual--image img{width:100%;height:100%;object-fit:cover}
-    .anm-challenge-activity__visual--night{background:linear-gradient(145deg,#13271e,#06110c)}
-    .anm-challenge-activity__visual--night svg{stroke:#f3c260}
-    .anm-challenge-activity h3{font-size:.96rem;margin:15px 4px 5px}
-    .anm-challenge-activity p{font-size:.8rem;line-height:1.4;margin:0 4px;opacity:.66}
-    .anm-challenge-faq{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-    .anm-challenge-faq details{
-      border:1px solid rgba(255,255,255,.2);border-radius:12px;background:rgba(255,255,255,.045);overflow:hidden
-    }
-    .anm-challenge-faq summary{
-      list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:20px;
-      padding:18px 20px;font-weight:800;font-size:.93rem
-    }
-    .anm-challenge-faq summary::-webkit-details-marker{display:none}
-    .anm-challenge-faq summary span{font-size:1.4rem;line-height:1;color:var(--challenge-gold);transition:transform .2s ease}
-    .anm-challenge-faq details[open] summary span{transform:rotate(45deg)}
-    .anm-challenge-faq details>div{padding:0 20px 20px;color:rgba(255,255,255,.74);font-size:.88rem;line-height:1.6}
-    .anm-challenge-faq details p{margin:0}
-    .anm-challenge-final-cta{
-      position:relative;color:#fff;text-align:center;background-image:url('{{ 'anm-campsite.jpg' | asset_url }}');
-      background-size:cover;background-position:center 78%
-    }
-    .anm-challenge-final-cta__overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,18,12,.56),rgba(5,18,12,.88))}
-    .anm-challenge-final-cta__inner{position:relative;z-index:1;padding:86px 0 94px}
-    .anm-challenge-final-cta p:not(.anm-challenge-eyebrow){margin:0 0 24px;color:rgba(255,255,255,.82)}
-    @keyframes anmChallengeCheck{
-      0%,18%{stroke-dashoffset:18;opacity:0}28%{opacity:1}45%,82%{stroke-dashoffset:0;opacity:1}100%{stroke-dashoffset:0;opacity:.55}
-    }
-    @keyframes anmChallengePulse{
-      0%,22%,100%{transform:scale(.94);opacity:.72}38%,58%{transform:scale(1);opacity:1}72%{transform:scale(.97);opacity:.85}
-    }
-    @keyframes anmChallengeRay{
-      0%,34%,72%,100%{opacity:0}43%,58%{opacity:1}
-    }
-    @media(max-width:900px){
-      .anm-challenge-hero{min-height:650px}
-      .anm-challenge-entry-grid,.anm-challenge-story-grid{grid-template-columns:1fr}
-      .anm-challenge-steps{grid-template-columns:1fr 1fr}
-      .anm-challenge-activities{grid-template-columns:1fr 1fr}
-      .anm-challenge-story-image{aspect-ratio:16/10;max-height:520px}
-      .anm-challenge-faq{grid-template-columns:1fr}
-    }
-    @media(max-width:640px){
-      .anm-challenge-shell{width:min(100% - 28px,1180px)}
-      .anm-challenge-section{padding:60px 0}
-      .anm-challenge-hero{min-height:620px;background-position:center 55%}
-      .anm-challenge-hero__inner{padding:30px 0 40px}
-      .anm-challenge-brand-lockup{width:min(290px,82vw);border-radius:9px;margin-bottom:12px}
-      .anm-challenge-title-row h1{font-size:clamp(2.35rem,12vw,3.55rem)}
-      .anm-challenge-accepted{width:32px}
-      .anm-challenge-kicker{font-size:.6rem;letter-spacing:.2em;margin-top:13px}
-      .anm-challenge-prize{padding-inline:9px;min-width:92%}
-      .anm-challenge-prize__amount{font-size:clamp(2.55rem,13vw,3.9rem)}
-      .anm-challenge-prize__label{letter-spacing:.23em}
-      .anm-challenge-hero__actions{width:100%}
-      .anm-challenge-btn{width:100%;min-height:48px;font-size:.75rem}
-      .anm-challenge-entry-card{padding:24px;min-height:auto}
-      .anm-challenge-entry-card__media{margin:-24px -24px 24px;height:165px}
-      .anm-challenge-duration{grid-template-columns:1fr auto 1fr;gap:10px}
-      .anm-challenge-duration strong{letter-spacing:.13em}
-      .anm-challenge-duration small{letter-spacing:.14em}
-      .anm-challenge-steps,.anm-challenge-activities{grid-template-columns:1fr}
-      .anm-challenge-step{text-align:left;padding:22px 20px 22px 92px;min-height:116px}
-      .anm-challenge-step__icon{position:absolute;left:20px;top:22px;width:56px;height:56px;margin:0}
-      .anm-challenge-step__icon svg{width:32px;height:32px}
-      .anm-challenge-step__number{top:14px;right:15px}
-      .anm-challenge-memory{min-height:420px}
-      .anm-challenge-story-grid{gap:32px}
-      .anm-challenge-story-image{aspect-ratio:5/4}
-      .anm-challenge-activity{display:grid;grid-template-columns:118px 1fr;grid-template-rows:auto auto;column-gap:14px;align-items:center}
-      .anm-challenge-activity__visual{grid-row:1/3;height:92px}
-      .anm-challenge-activity h3{margin:0 0 4px}
-      .anm-challenge-activity p{margin:0}
-    }
-    @media(prefers-reduced-motion:reduce){
-      .anm-challenge-accepted__ring,.anm-challenge-accepted__ring path,.anm-challenge-accepted__ray{animation:none!important}
-      .anm-challenge-accepted__ring path{stroke-dashoffset:0;opacity:1}
-      .anm-challenge-btn{transition:none}
-    }
-  </style>
+  <script src="{{ 'challenge-experience.js' | asset_url }}" defer></script>
 {% else %}
-  <section class="section wrap narrow"><h1>{{ page.title | escape }}</h1><div class="richtext">{{ page.content }}</div></section>
+  <section class="section wrap narrow">
+    <h1>{{ page.title | escape }}</h1>
+    <div class="richtext">{{ page.content }}</div>
+  </section>
 {% endif %}
 
 {% schema %}
