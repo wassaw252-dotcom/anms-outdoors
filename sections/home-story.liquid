@@ -1,6 +1,11 @@
 {{ 'home-journey.css' | asset_url | stylesheet_tag }}
 <script src="{{ 'home-journey.js' | asset_url }}" defer></script>
-{% if section.settings.image %}<style>:root{--anm-journey-bg:url('{{ section.settings.image | image_url: width: 2400 }}')}</style>{% endif %}
+<style>
+  :root{
+    --anm-journey-bg-desktop:url('https://cdn.shopify.com/s/files/1/0968/1128/6825/files/anm-bg-desktop.webp?v=1789446402');
+    --anm-journey-bg-mobile:url('https://cdn.shopify.com/s/files/1/0968/1128/6825/files/anm-bg-mobile.webp?v=1789446411');
+  }
+</style>
 <section id="StoreStart" class="story-banner story-banner--journey" tabindex="-1" aria-labelledby="StoryTitle">
   <div class="wrap story-content">
     <span class="eyebrow">CHASE LESS NOISE.</span>
