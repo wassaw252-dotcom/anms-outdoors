@@ -1,0 +1,64 @@
+/* ANM’s OUTDOORS — static scenic journey below hero. Hero/entrance styles are intentionally untouched. */
+body.page-index{--anm-journey-bg:url('https://cdn.shopify.com/s/files/1/0968/1128/6825/files/anm-camp-set-family.webp?v=1789351342')}
+body.page-index #MainContent{position:relative;isolation:isolate;background:#08140e}
+body.page-index #MainContent::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(180deg,rgba(5,14,8,.38),rgba(5,14,8,.58) 42%,rgba(4,11,7,.72)),var(--anm-journey-bg);background-repeat:no-repeat;background-position:center center;background-size:cover;transform:translateZ(0)}
+body.page-index #MainContent>.shopify-section{position:relative;z-index:1;background:transparent}
+
+body.page-index .story-banner{min-height:72svh;background:transparent;overflow:visible;isolation:isolate}
+body.page-index .story-banner>.cover{display:none!important}
+body.page-index .story-banner::after{z-index:-1;background:linear-gradient(90deg,rgba(5,14,8,.78) 0%,rgba(5,14,8,.48) 48%,rgba(5,14,8,.16) 100%)}
+body.page-index .story-content{padding-block:clamp(88px,12vw,170px)}
+body.page-index .story-content .eyebrow{color:#d8bd7a;font-size:.78rem;letter-spacing:.28em;margin-bottom:12px}
+body.page-index .story-content h2{max-width:780px;color:#fff;font-size:clamp(3rem,7vw,6.8rem);line-height:.95;text-shadow:0 4px 24px rgba(0,0,0,.36)}
+body.page-index .story-content p{max-width:610px;color:#f3ecdc;font-size:clamp(1rem,1.7vw,1.3rem);text-shadow:0 2px 16px rgba(0,0,0,.42)}
+body.page-index .story-content .button{margin-top:8px;background:rgba(36,53,31,.68);border-color:rgba(216,189,122,.45);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+body.page-index .story-aside{color:#f3ecdc;opacity:.86}
+
+body.page-index .sba-section{background:transparent!important;isolation:isolate}
+body.page-index .sba-section::before{display:none!important;content:none!important}
+body.page-index .sba-section::after{background:linear-gradient(180deg,rgba(5,14,8,.16),rgba(5,14,8,.38) 56%,rgba(5,14,8,.22))!important}
+body.page-index .sba-heading{text-shadow:0 2px 18px rgba(0,0,0,.48)}
+body.page-index .sba-panel{background:rgba(248,245,237,.18)!important;border-color:rgba(255,255,255,.34)!important;color:#fff!important;box-shadow:0 18px 48px rgba(0,0,0,.20)!important;backdrop-filter:blur(11px);-webkit-backdrop-filter:blur(11px)}
+body.page-index .sba-panel-head p{color:rgba(255,255,255,.78)!important;opacity:1!important}
+body.page-index .sba-view-all{color:#fff!important}
+body.page-index .sba-product{background:rgba(246,242,231,.78)!important;color:#172319!important;border-color:rgba(255,255,255,.46)!important;box-shadow:0 12px 34px rgba(0,0,0,.17)!important;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+body.page-index .sba-empty{background:rgba(246,242,231,.72)!important;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+
+body.page-index .sba-why{background:transparent!important;border:0!important;box-shadow:none!important;color:#fff!important;padding-top:clamp(58px,8vw,96px)!important;padding-bottom:clamp(58px,8vw,96px)!important}
+body.page-index .sba-why::before{display:none!important;content:none!important}
+body.page-index .sba-why-head .eyebrow{color:#d8bd7a!important}
+body.page-index .sba-why-head h2{color:#fff!important;text-shadow:0 3px 22px rgba(0,0,0,.45)}
+body.page-index .sba-why-head p{color:rgba(255,255,255,.84)!important}
+body.page-index .sba-why-card{background:rgba(248,245,237,.72)!important;color:#172319!important;border:1px solid rgba(255,255,255,.43)!important;box-shadow:0 12px 34px rgba(0,0,0,.16)!important;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+body.page-index .sba-why-card.is-challenge{background:linear-gradient(135deg,rgba(251,243,216,.82),rgba(226,190,103,.68))!important;border-color:rgba(222,181,78,.82)!important}
+
+body.page-index .camp-pathways{background:transparent!important}
+body.page-index .camp-pathways>.wrap{position:relative}
+body.page-index .camp-pathways .section-heading{padding:22px 24px;border:1px solid rgba(255,255,255,.18);border-radius:18px;background:rgba(6,17,10,.28);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+body.page-index .camp-pathways .muted{color:rgba(243,236,220,.78)}
+body.page-index .pathway{border:1px solid rgba(255,255,255,.18);box-shadow:0 16px 38px rgba(0,0,0,.18)}
+body.page-index .brand-story{display:block;background:transparent!important;padding:clamp(58px,8vw,110px) clamp(20px,4vw,64px)}
+body.page-index .brand-story-image{display:none!important}
+body.page-index .brand-story-copy{max-width:820px;margin-inline:auto;padding:clamp(28px,5vw,64px);border:1px solid rgba(255,255,255,.22);border-radius:22px;background:rgba(5,15,9,.42);color:#fff;box-shadow:0 20px 50px rgba(0,0,0,.18);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+body.page-index .brand-story-copy p{color:rgba(243,236,220,.82)}
+body.page-index .footer{position:relative;z-index:2;background:rgba(3,10,6,.88);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+
+body.page-index .journey-reveal{opacity:0;transform:translate3d(0,24px,0);transition:opacity .72s ease,transform .72s cubic-bezier(.22,.61,.36,1);transition-delay:var(--journey-delay,0ms)}
+body.page-index .journey-reveal.is-visible{opacity:1;transform:none}
+
+@media(max-width:749px){
+  body.page-index #MainContent::before{background-position:56% center}
+  body.page-index .story-banner{min-height:68svh}
+  body.page-index .story-content{padding-block:80px 94px}
+  body.page-index .story-content h2{font-size:clamp(3.15rem,15vw,5rem);max-width:10ch}
+  body.page-index .story-content p{font-size:1rem;max-width:31ch}
+  body.page-index .story-aside{right:7%;bottom:34px;font-size:1.25rem}
+  body.page-index .sba-panel{background:rgba(10,22,13,.12)!important;border-color:rgba(255,255,255,.22)!important;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+  body.page-index .sba-product{background:rgba(246,242,231,.78)!important}
+  body.page-index .sba-why{padding-inline:18px!important}
+  body.page-index .sba-why-card{background:rgba(248,245,237,.76)!important}
+  body.page-index .camp-pathways .section-heading{padding:18px;background:rgba(6,17,10,.34)}
+  body.page-index .brand-story{padding-inline:18px}
+}
+
+@media(prefers-reduced-motion:reduce){body.page-index .journey-reveal{opacity:1!important;transform:none!important;transition:none!important}}
