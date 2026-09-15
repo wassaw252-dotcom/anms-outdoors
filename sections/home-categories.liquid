@@ -3,6 +3,7 @@
   assign category_handles = 'tents-shelters,furniture-comfort,sleeping-relaxation,lighting-power,camp-kitchen-dining,hydration-outdoor-living,gear-essentials,camp-sets,all' | split: ','
   assign category_labels = 'Tents & Shelters|Furniture & Comfort|Sleeping & Relaxation|Lighting & Power|Camp Kitchen & Dining|Hydration & Outdoor Living|Gear & Essentials|Camp Sets|All Gear' | split: '|'
   assign category_icons = 'tent,chair,sleep,lantern,pot,bottle,pack,tent,pack' | split: ','
+  assign tent_featured_handles = 'camel-giant-cabin-tent-two-bedrooms-and-living-room,keephike-portable-tunnel-tent-210d-oxford-instant-pitch,keephike-ridge-cabin-tent-two-bedrooms-and-hall' | split: ','
   assign sba_background_url = 'https://cdn.shopify.com/s/files/1/0968/1128/6825/files/anm-camp-set-family.webp?v=1789351342'
   if section.settings.background_image != blank
     assign sba_background_url = section.settings.background_image | image_url: width: 2400
@@ -43,8 +44,12 @@
           {% else %}
             {% assign category_url = routes.collections_url | append: '/' | append: category_handle %}
           {% endif %}
-          {% assign loop_count = category.products_count %}
-          {% if loop_count > 5 %}{% assign loop_count = 5 %}{% endif %}
+          {% if category_handle == 'tents-shelters' %}
+            {% assign loop_count = 3 %}
+          {% else %}
+            {% assign loop_count = category.products_count %}
+            {% if loop_count > 5 %}{% assign loop_count = 5 %}{% endif %}
+          {% endif %}
           {% assign loop_enabled = false %}
           {% if loop_count > 1 %}{% assign loop_enabled = true %}{% endif %}
 
@@ -58,15 +63,34 @@
               <a class="sba-view-all" href="{{ category_url }}">View all</a>
             </div>
 
-            {% if category.products_count > 0 %}
+            {% if category_handle == 'tents-shelters' or category.products_count > 0 %}
               <div class="sba-viewport"{% if loop_enabled %} data-sba-loop data-count="{{ loop_count }}"{% endif %}>
                 <div class="sba-track">
-                  {% if loop_enabled %}
-                    {% for product in category.products limit: 5 %}{% render 'adventure-product-card', product: product, clone: true %}{% endfor %}
-                  {% endif %}
-                  {% for product in category.products limit: 5 %}{% render 'adventure-product-card', product: product %}{% endfor %}
-                  {% if loop_enabled %}
-                    {% for product in category.products limit: 5 %}{% render 'adventure-product-card', product: product, clone: true %}{% endfor %}
+                  {% if category_handle == 'tents-shelters' %}
+                    {% if loop_enabled %}
+                      {% for product_handle in tent_featured_handles %}
+                        {% assign product = all_products[product_handle] %}
+                        {% if product != blank %}{% render 'adventure-product-card', product: product, clone: true %}{% endif %}
+                      {% endfor %}
+                    {% endif %}
+                    {% for product_handle in tent_featured_handles %}
+                      {% assign product = all_products[product_handle] %}
+                      {% if product != blank %}{% render 'adventure-product-card', product: product %}{% endif %}
+                    {% endfor %}
+                    {% if loop_enabled %}
+                      {% for product_handle in tent_featured_handles %}
+                        {% assign product = all_products[product_handle] %}
+                        {% if product != blank %}{% render 'adventure-product-card', product: product, clone: true %}{% endif %}
+                      {% endfor %}
+                    {% endif %}
+                  {% else %}
+                    {% if loop_enabled %}
+                      {% for product in category.products limit: 5 %}{% render 'adventure-product-card', product: product, clone: true %}{% endfor %}
+                    {% endif %}
+                    {% for product in category.products limit: 5 %}{% render 'adventure-product-card', product: product %}{% endfor %}
+                    {% if loop_enabled %}
+                      {% for product in category.products limit: 5 %}{% render 'adventure-product-card', product: product, clone: true %}{% endfor %}
+                    {% endif %}
                   {% endif %}
                 </div>
               </div>
