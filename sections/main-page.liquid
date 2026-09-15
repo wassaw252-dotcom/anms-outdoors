@@ -301,7 +301,7 @@
     .anm-challenge-shell{width:min(1180px,calc(100% - 40px));margin-inline:auto}
     .anm-challenge-hero{
       position:relative;
-      min-height:760px;
+      min-height:700px;
       display:grid;
       place-items:center;
       color:#fff;
@@ -322,13 +322,13 @@
     .anm-challenge-hero__inner{
       position:relative;
       z-index:1;
-      padding:54px 0 66px;
+      padding:44px 0 56px;
       display:flex;
       flex-direction:column;
       align-items:center;
     }
     .anm-challenge-brand-lockup{
-      width:clamp(260px,32vw,430px);
+      width:clamp(220px,27vw,360px);
       aspect-ratio:584/410;
       background-image:url('{{ 'anms-contest-brand.jpg' | asset_url }}');
       background-size:cover;
@@ -336,20 +336,20 @@
       background-position:center;
       border-radius:12px;
       box-shadow:0 16px 40px rgba(0,0,0,.28);
-      margin-bottom:17px;
+      margin-bottom:15px;
     }
-    .anm-challenge-title-row{display:flex;align-items:center;justify-content:center;gap:13px}
+    .anm-challenge-title-row{display:flex;align-items:center;justify-content:center;gap:11px}
     .anm-challenge-title-row h1{
       margin:0;color:#fff;
       font-family:'ANM Display','Arial Narrow',Impact,sans-serif;
-      font-size:clamp(3rem,7vw,6.2rem);
+      font-size:clamp(2.5rem,5.7vw,5rem);
       line-height:.86;
       letter-spacing:-.035em;
       text-transform:uppercase;
       text-shadow:0 3px 24px rgba(0,0,0,.42);
       transform:skewX(-7deg);
     }
-    .anm-challenge-accepted{position:relative;width:clamp(36px,4vw,54px);aspect-ratio:1;display:grid;place-items:center;flex:none}
+    .anm-challenge-accepted{position:relative;width:clamp(31px,3.4vw,46px);aspect-ratio:1;display:grid;place-items:center;flex:none}
     .anm-challenge-accepted__ring{
       width:85%;aspect-ratio:1;border:2px solid var(--challenge-gold-2);border-radius:50%;
       display:grid;place-items:center;animation:anmChallengePulse 2.8s ease-in-out infinite;
@@ -367,31 +367,31 @@
     .anm-challenge-accepted__ray--1{right:-3px;top:7px;transform:rotate(-35deg)}
     .anm-challenge-accepted__ray--2{right:-6px;top:18px}
     .anm-challenge-kicker{
-      margin:18px 0 13px;
-      font-size:.84rem;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:#f9f2e4
+      margin:15px 0 11px;
+      font-size:.74rem;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:#f9f2e4
     }
     .anm-challenge-prize{
       display:inline-flex;flex-direction:column;align-items:center;
-      padding:14px 36px 16px;margin:0 0 18px;
+      padding:12px 30px 14px;margin:0 0 16px;
       background:linear-gradient(90deg,transparent,rgba(8,34,24,.94) 15%,rgba(8,34,24,.94) 85%,transparent);
-      min-width:min(520px,92vw);
+      min-width:min(440px,90vw);
     }
     .anm-challenge-prize__amount{
       color:var(--challenge-gold-2);
       font-family:Georgia,'Times New Roman',serif;
-      font-weight:800;font-size:clamp(3.2rem,7vw,6rem);line-height:.9;letter-spacing:-.035em;
+      font-weight:800;font-size:clamp(2.7rem,5.8vw,4.9rem);line-height:.9;letter-spacing:-.035em;
       text-shadow:0 3px 10px rgba(0,0,0,.25)
     }
-    .anm-challenge-prize__label{margin-top:8px;font-weight:800;letter-spacing:.35em;font-size:clamp(.78rem,1.4vw,1.1rem)}
+    .anm-challenge-prize__label{margin-top:7px;font-weight:800;letter-spacing:.32em;font-size:clamp(.72rem,1.15vw,.95rem)}
     .anm-challenge-hero__copy{
-      width:min(720px,94%);margin:0 auto 25px;
-      font-size:clamp(1rem,1.4vw,1.15rem);line-height:1.6;color:rgba(255,255,255,.92)
+      width:min(680px,92%);margin:0 auto 22px;
+      font-size:clamp(.92rem,1.2vw,1.05rem);line-height:1.55;color:rgba(255,255,255,.92)
     }
-    .anm-challenge-hero__actions{display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
+    .anm-challenge-hero__actions{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
     .anm-challenge-btn{
-      min-height:50px;display:inline-flex;align-items:center;justify-content:center;gap:9px;
-      padding:0 24px;border-radius:999px;text-decoration:none!important;
-      font-size:.83rem;font-weight:900;letter-spacing:.035em;text-transform:uppercase;
+      min-height:46px;display:inline-flex;align-items:center;justify-content:center;gap:8px;
+      padding:0 21px;border-radius:999px;text-decoration:none!important;
+      font-size:.78rem;font-weight:900;letter-spacing:.035em;text-transform:uppercase;
       transition:transform .2s ease,box-shadow .2s ease,background .2s ease,color .2s ease,border-color .2s ease;
     }
     .anm-challenge-btn:hover{transform:translateY(-2px)}
@@ -540,7 +540,7 @@
       0%,34%,72%,100%{opacity:0}43%,58%{opacity:1}
     }
     @media(max-width:900px){
-      .anm-challenge-hero{min-height:700px}
+      .anm-challenge-hero{min-height:650px}
       .anm-challenge-entry-grid,.anm-challenge-story-grid{grid-template-columns:1fr}
       .anm-challenge-steps{grid-template-columns:1fr 1fr}
       .anm-challenge-activities{grid-template-columns:1fr 1fr}
@@ -550,17 +550,17 @@
     @media(max-width:640px){
       .anm-challenge-shell{width:min(100% - 28px,1180px)}
       .anm-challenge-section{padding:60px 0}
-      .anm-challenge-hero{min-height:690px;background-position:center 55%}
-      .anm-challenge-hero__inner{padding:38px 0 48px}
-      .anm-challenge-brand-lockup{width:min(350px,90vw);border-radius:9px;margin-bottom:14px}
-      .anm-challenge-title-row h1{font-size:clamp(2.9rem,15vw,4.3rem)}
-      .anm-challenge-accepted{width:38px}
-      .anm-challenge-kicker{font-size:.65rem;letter-spacing:.2em}
-      .anm-challenge-prize{padding-inline:10px;min-width:100%}
-      .anm-challenge-prize__amount{font-size:clamp(3.1rem,16vw,4.8rem)}
-      .anm-challenge-prize__label{letter-spacing:.25em}
+      .anm-challenge-hero{min-height:620px;background-position:center 55%}
+      .anm-challenge-hero__inner{padding:30px 0 40px}
+      .anm-challenge-brand-lockup{width:min(290px,82vw);border-radius:9px;margin-bottom:12px}
+      .anm-challenge-title-row h1{font-size:clamp(2.35rem,12vw,3.55rem)}
+      .anm-challenge-accepted{width:32px}
+      .anm-challenge-kicker{font-size:.6rem;letter-spacing:.2em;margin-top:13px}
+      .anm-challenge-prize{padding-inline:9px;min-width:92%}
+      .anm-challenge-prize__amount{font-size:clamp(2.55rem,13vw,3.9rem)}
+      .anm-challenge-prize__label{letter-spacing:.23em}
       .anm-challenge-hero__actions{width:100%}
-      .anm-challenge-btn{width:100%;min-height:52px}
+      .anm-challenge-btn{width:100%;min-height:48px;font-size:.75rem}
       .anm-challenge-entry-card{padding:24px;min-height:auto}
       .anm-challenge-entry-card__media{margin:-24px -24px 24px;height:165px}
       .anm-challenge-duration{grid-template-columns:1fr auto 1fr;gap:10px}
