@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap');
 
 .cx{
   --forest:#0b2b20;
@@ -60,9 +60,9 @@
 .cx-title{display:flex;align-items:center;justify-content:center;gap:8px}
 .cx-title h1{
   margin:0;
-  font-family:"Kalam","Brush Script MT","Segoe Print",cursive;
+  font-family:"Caveat Brush","Brush Script MT","Segoe Print",cursive;
   font-style:normal;
-  font-weight:700;
+  font-weight:400;
   font-size:clamp(30px,3.6vw,50px);
   line-height:.92;
   letter-spacing:.01em;
@@ -462,7 +462,7 @@
   .cx-how__title{margin:0 0 7px;font-size:12.5px;letter-spacing:.025em;color:#252a24}
   .cx-steps{gap:3px}
   .cx-step:not(:last-child):after{right:-4px;top:17px;font-size:14px}
-  .cx-step__num{left:1px;top:13px;font-size:7.5px}
+  .cx-step__num{left:1px;top:13px;font-size:7.5px;font-weight:900}
   .cx-step__icon{width:34px;height:34px;margin-bottom:5px;border-width:1.2px}
   .cx-step__icon svg{width:17px;height:17px}
   .cx-step strong{font-size:8.2px;line-height:1.05}
