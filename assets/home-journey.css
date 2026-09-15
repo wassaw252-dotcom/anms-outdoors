@@ -1,5 +1,5 @@
 /* ANM’s OUTDOORS — static scenic journey below hero. Hero/entrance styles are intentionally untouched. */
-body.page-index{--anm-journey-bg:url('https://cdn.shopify.com/s/files/1/0968/1128/6825/files/anm-camp-set-family.webp?v=1789351342')}
+body.page-index{--anm-journey-bg:var(--anm-journey-bg-desktop)}
 body.page-index #MainContent{position:relative;isolation:isolate;background:#08140e}
 body.page-index #MainContent::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(180deg,rgba(5,14,8,.38),rgba(5,14,8,.58) 42%,rgba(4,11,7,.72)),var(--anm-journey-bg);background-repeat:no-repeat;background-position:center center;background-size:cover;transform:translateZ(0)}
 body.page-index #MainContent>.shopify-section{position:relative;z-index:1;background:transparent}
@@ -47,7 +47,8 @@ body.page-index .journey-reveal{opacity:0;transform:translate3d(0,24px,0);transi
 body.page-index .journey-reveal.is-visible{opacity:1;transform:none}
 
 @media(max-width:749px){
-  body.page-index #MainContent::before{background-position:56% center}
+  body.page-index{--anm-journey-bg:var(--anm-journey-bg-mobile)}
+  body.page-index #MainContent::before{background-position:center center}
   body.page-index .story-banner{min-height:68svh}
   body.page-index .story-content{padding-block:80px 94px}
   body.page-index .story-content h2{font-size:clamp(3.15rem,15vw,5rem);max-width:10ch}
