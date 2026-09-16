@@ -3,6 +3,19 @@
   if (!root || root.dataset.nxcReady === '1') return;
   root.dataset.nxcReady = '1';
 
+  /* Load the Expedition Pass layer from the same Shopify theme asset path. */
+  if (!document.querySelector('link[data-nxc-expedition]')) {
+    const script = document.currentScript || document.querySelector('script[src*="challenge-experience.js"]');
+    if (script?.src) {
+      const href = script.src.replace(/challenge-experience\.js(?:\?[^#]*)?/, 'challenge-expedition.css');
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = href;
+      link.dataset.nxcExpedition = '1';
+      document.head.appendChild(link);
+    }
+  }
+
   /* Use the approved transparent campaign badge; keep the original page layout intact. */
   const prizeBadge = root.querySelector('.nxc-lockup');
   if (prizeBadge) {
@@ -10,16 +23,28 @@
     prizeBadge.alt = 'Challenge — RM5,000 Grand Prize';
     prizeBadge.width = 2172;
     prizeBadge.height = 724;
-    /* 40% smaller than the previous lockup and pulled slightly upward. */
     prizeBadge.style.width = 'min(324px, 56vw)';
     prizeBadge.style.maxWidth = '100%';
     prizeBadge.style.margin = '-14px auto -2px';
   }
 
+  /* Upgrade the hero controls into one compact Expedition Pass system. */
+  const timer = root.querySelector('[data-nxc-countdown]');
+  const entryPass = root.querySelector('.nxc-entrychoices');
+  const gearLabel = entryPass?.querySelector('.nxc-entrychoice:last-child .nxc-entrychoice__top');
+  const heroCta = root.querySelector('.nxc-hero__cta');
+
+  timer?.classList.add('nxc-expedition-clock');
+  entryPass?.classList.add('nxc-expedition-pass');
+  if (gearLabel) gearLabel.textContent = 'GEAR ENTRY';
+  if (heroCta) {
+    heroCta.classList.add('nxc-expedition-cta');
+    heroCta.innerHTML = 'JOIN THE CHALLENGE <span>→</span>';
+  }
+
   /* Keep empty until the owner says: start countdown. */
   const COUNTDOWN_END = '';
   const COUNTDOWN_DAYS = 45;
-  const timer = root.querySelector('[data-nxc-countdown]');
   const daysEl = root.querySelector('[data-nxc-days]');
   const hoursEl = root.querySelector('[data-nxc-hours]');
   const minutesEl = root.querySelector('[data-nxc-minutes]');
