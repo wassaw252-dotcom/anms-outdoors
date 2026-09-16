@@ -1,78 +1,94 @@
 (() => {
-  const root = document.getElementById('AnmChallengeExperience');
-  if (!root || root.dataset.cxReady === 'true') return;
-  root.dataset.cxReady = 'true';
+  const root = document.getElementById('NxcChallenge');
+  if (!root || root.dataset.nxcReady === '1') return;
+  root.dataset.nxcReady = '1';
 
-  const tabs = Array.from(root.querySelectorAll('[data-cx-tab]'));
-  const panels = Array.from(root.querySelectorAll('[data-cx-panel]'));
-  const hub = root.querySelector('#ChallengeHub');
+  /* Keep empty until the owner says: start countdown. */
+  const COUNTDOWN_END = '';
+  const COUNTDOWN_DAYS = 45;
+  const timer = root.querySelector('[data-nxc-countdown]');
+  const daysEl = root.querySelector('[data-nxc-days]');
+  const hoursEl = root.querySelector('[data-nxc-hours]');
+  const minutesEl = root.querySelector('[data-nxc-minutes]');
+  const pad = (value) => String(value).padStart(2, '0');
+  let countdownInterval = null;
 
-  const activate = (name, options = {}) => {
-    const target = panels.find((panel) => panel.dataset.cxPanel === name);
-    if (!target) return;
+  const paintCountdown = () => {
+    if (!timer || !daysEl || !hoursEl || !minutesEl) return;
+    let totalMinutes = COUNTDOWN_DAYS * 24 * 60;
 
-    tabs.forEach((tab) => {
-      const active = tab.dataset.cxTab === name;
-      tab.classList.toggle('is-active', active);
-      tab.setAttribute('aria-selected', active ? 'true' : 'false');
-      tab.setAttribute('tabindex', active ? '0' : '-1');
-    });
-
-    panels.forEach((panel) => {
-      const active = panel === target;
-      panel.classList.toggle('is-active', active);
-      panel.hidden = !active;
-    });
-
-    if (options.scroll && hub) {
-      const top = hub.getBoundingClientRect().top + window.scrollY - 8;
-      window.scrollTo({ top, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+    if (COUNTDOWN_END) {
+      const end = Date.parse(COUNTDOWN_END);
+      if (Number.isFinite(end)) {
+        totalMinutes = Math.max(0, Math.ceil((end - Date.now()) / 60000));
+      }
     }
 
-    if (options.focus) {
-      const heading = target.querySelector('h2, h3');
-      if (heading) {
-        heading.setAttribute('tabindex', '-1');
-        heading.focus({ preventScroll: true });
-      }
+    const days = Math.floor(totalMinutes / 1440);
+    const hours = Math.floor((totalMinutes % 1440) / 60);
+    const minutes = totalMinutes % 60;
+
+    daysEl.textContent = pad(days);
+    hoursEl.textContent = pad(hours);
+    minutesEl.textContent = pad(minutes);
+    timer.setAttribute('aria-label', `${days} days ${hours} hours ${minutes} minutes remaining`);
+
+    if (COUNTDOWN_END && totalMinutes <= 0 && countdownInterval) {
+      clearInterval(countdownInterval);
+      countdownInterval = null;
     }
   };
 
-  tabs.forEach((tab, index) => {
-    tab.addEventListener('click', () => activate(tab.dataset.cxTab));
-    tab.addEventListener('keydown', (event) => {
-      if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
-      event.preventDefault();
-      let next = index;
-      if (event.key === 'ArrowRight') next = (index + 1) % tabs.length;
-      if (event.key === 'ArrowLeft') next = (index - 1 + tabs.length) % tabs.length;
-      if (event.key === 'Home') next = 0;
-      if (event.key === 'End') next = tabs.length - 1;
-      tabs[next].focus();
-      activate(tabs[next].dataset.cxTab);
-    });
-  });
+  paintCountdown();
+  if (COUNTDOWN_END) countdownInterval = window.setInterval(paintCountdown, 1000);
 
-  root.querySelectorAll('[data-cx-open]').forEach((trigger) => {
-    trigger.addEventListener('click', (event) => {
-      const name = trigger.dataset.cxOpen;
-      if (!name) return;
-      event.preventDefault();
-      activate(name, { scroll: true, focus: true });
-    });
-  });
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const reveals = Array.from(root.querySelectorAll('[data-nxc-reveal]'));
 
-  root.querySelectorAll('[data-cx-rules]').forEach((trigger) => {
-    trigger.addEventListener('click', (event) => {
-      event.preventDefault();
-      activate('rules', { scroll: true, focus: true });
-      window.setTimeout(() => {
-        const first = root.querySelector('[data-cx-panel="rules"] details');
-        if (first) first.open = true;
-      }, 280);
-    });
-  });
+  if (reduce || !('IntersectionObserver' in window)) {
+    reveals.forEach((el) => el.classList.add('is-visible'));
+  } else {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-visible');
+        io.unobserve(entry.target);
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -5% 0px' });
+    reveals.forEach((el) => io.observe(el));
+  }
 
-  const initial = root.querySelector('.cx-tab.is-active')?.dataset.cxTab || 'join';
-  activate(initial);
+  const hero = root.querySelector('.nxc-hero');
+  const media = root.querySelector('.nxc-hero__media');
+  const steps = root.querySelector('[data-nxc-steps]');
+  const progress = steps?.querySelector('.nxc-steps__line span');
+  let ticking = false;
+
+  const update = () => {
+    ticking = false;
+    const y = window.scrollY || 0;
+
+    if (!reduce && media && hero && window.innerWidth > 700) {
+      const max = Math.max(hero.offsetHeight, 1);
+      const p = Math.max(0, Math.min(1, y / max));
+      media.style.transform = `translate3d(0,${p * 12}px,0) scale(${1 + p * 0.012})`;
+    }
+
+    if (steps && progress && window.innerWidth > 900) {
+      const r = steps.getBoundingClientRect();
+      const vh = window.innerHeight || 1;
+      const p = Math.max(0, Math.min(1, (vh * 0.78 - r.top) / (r.height + vh * 0.35)));
+      progress.style.width = `${p * 100}%`;
+    }
+  };
+
+  const onScroll = () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(update);
+  };
+
+  update();
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
 })();
