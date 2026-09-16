@@ -10,6 +10,10 @@
     prizeBadge.alt = 'Challenge — RM5,000 Grand Prize';
     prizeBadge.width = 2172;
     prizeBadge.height = 724;
+    /* 40% smaller than the previous lockup and pulled slightly upward. */
+    prizeBadge.style.width = 'min(324px, 56vw)';
+    prizeBadge.style.maxWidth = '100%';
+    prizeBadge.style.margin = '-14px auto -2px';
   }
 
   /* Keep empty until the owner says: start countdown. */
