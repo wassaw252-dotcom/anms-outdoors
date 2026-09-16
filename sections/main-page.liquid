@@ -1,243 +1,163 @@
 {% if page.handle == 'anms-outdoors-challenge' %}
   {{ 'challenge-experience.css' | asset_url | stylesheet_tag }}
 
-  <div
-    id="AnmChallengeExperience"
-    class="cx"
-    style="--cx-hero:url('{{ 'anm-campsite.jpg' | asset_url }}')"
-  >
-    <section class="cx-hero" aria-labelledby="ChallengeExperienceTitle">
-      <div class="cx-shell cx-hero__inner">
-        <div class="cx-brand">
-          <img
-            src="{{ 'anms-contest-brand.jpg' | asset_url }}"
-            alt="Your next escape starts here. Built for the Wild. Disconnect from the noise. Reconnect with nature."
-            width="584"
-            height="410"
-          >
-        </div>
+  <div id="NxcChallenge" class="nxc">
+    <section class="nxc-hero" aria-labelledby="NxcChallengeTitle">
+      <div class="nxc-hero__media" style="background-image:url('{{ 'anm-campsite.jpg' | asset_url }}')" aria-hidden="true"></div>
+      <div class="nxc-hero__shade" aria-hidden="true"></div>
+      <div class="nxc-grain" aria-hidden="true"></div>
 
-        <div class="cx-title">
-          <h1 id="ChallengeExperienceTitle">CHALLENGE</h1>
-          <span class="cx-check" aria-label="Challenge accepted">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6.5 12.5 3.3 3.3 7.8-8"/></svg>
+      <div class="nxc-wrap nxc-hero__content">
+        <img
+          class="nxc-brand-lockup"
+          src="https://cdn.shopify.com/s/files/1/0968/1128/6825/files/anms-built-for-the-wild-lockup.png?v=1789521820"
+          alt="Your Next Escape Starts Here. Built for the Wild."
+          width="1448"
+          height="1086"
+          data-nxc-reveal
+        >
+
+        <img
+          class="nxc-lockup"
+          src="https://cdn.shopify.com/s/files/1/0968/1128/6825/files/anms-challenge-reference-lockup.png?v=1789518419"
+          alt="Challenge — RM5,000 Grand Prize"
+          id="NxcChallengeTitle"
+          width="1536"
+          height="469"
+          data-nxc-reveal
+        >
+
+        <p class="nxc-hero__tagline" data-nxc-reveal>SHARE YOUR ADVENTURE. WIN RM5,000.</p>
+
+        <div class="nxc-countdown" data-nxc-countdown role="timer" aria-label="45 days 0 hours 0 minutes remaining" data-nxc-reveal>
+          <span class="nxc-countdown__calendar" aria-hidden="true">
+            <svg viewBox="0 0 32 32"><rect x="4" y="7" width="24" height="21" rx="3"/><path d="M9 3v8M23 3v8M4 13h24M9 18h4M16 18h4M9 23h4M16 23h4"/></svg>
           </span>
+          <span class="nxc-countdown__unit"><strong data-nxc-days>45</strong><small>DAYS</small></span>
+          <span class="nxc-countdown__sep">:</span>
+          <span class="nxc-countdown__unit"><strong data-nxc-hours>00</strong><small>HOURS</small></span>
+          <span class="nxc-countdown__sep">:</span>
+          <span class="nxc-countdown__unit"><strong data-nxc-minutes>00</strong><small>MINUTES</small></span>
         </div>
 
-        <div class="cx-prize">RM5,000 GRAND PRIZE</div>
-        <p class="cx-storyline">Your Adventure. Our Story.</p>
-
-        <div class="cx-meta" aria-label="Challenge highlights">
-          <div class="cx-meta__item">
-            <span class="cx-meta__icon" aria-hidden="true">
-              <svg viewBox="0 0 28 28"><rect x="4" y="6" width="20" height="18" rx="2"/><path d="M8 3v6M20 3v6M4 11h20M9 15h3M15 15h3M9 19h3M15 19h3"/></svg>
+        <div class="nxc-entrychoices" aria-label="Ways to enter" data-nxc-reveal>
+          <div class="nxc-entrychoice">
+            <span class="nxc-entrychoice__icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32"><path d="M4 12 15 5h11l2 3v9L17 28 4 15v-3Z"/><circle cx="23" cy="10" r="2"/></svg>
             </span>
-            <strong>45 DAYS</strong><small>CHALLENGE PERIOD</small>
+            <strong>RM150</strong>
+            <small>ENTRY FEE</small>
           </div>
-          <div class="cx-meta__item">
-            <span class="cx-meta__icon" aria-hidden="true">
-              <svg viewBox="0 0 28 28"><path d="M4 13 13 4h9l2 2v9l-9 9L4 13Z"/><circle cx="19" cy="9" r="1.6"/></svg>
+          <span class="nxc-entrychoices__or">OR</span>
+          <div class="nxc-entrychoice">
+            <span class="nxc-entrychoice__icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32"><path d="M3 5h4l3 16h14l3-11H9M13 27h.01M23 27h.01"/></svg>
             </span>
-            <strong>RM150</strong><small>ENTRY</small>
-          </div>
-          <div class="cx-meta__item">
-            <span class="cx-meta__icon" aria-hidden="true">
-              <svg viewBox="0 0 28 28"><path d="M3 5h3l2.6 12h12.8l2.1-8H8M11 22a1.8 1.8 0 1 0 0 .1M20 22a1.8 1.8 0 1 0 0 .1"/></svg>
-            </span>
-            <strong>RM299+</strong><small>GEAR ENTRY</small>
+            <small class="nxc-entrychoice__top">BUY GEAR</small>
+            <strong>RM299+</strong>
+            <small>AUTOMATIC ENTRY</small>
           </div>
         </div>
 
-        <a class="cx-btn cx-btn--gold" href="#ChallengeHub" data-cx-open="join">ACCEPT THE CHALLENGE <span aria-hidden="true">→</span></a>
+        <a class="nxc-btn nxc-btn--gold nxc-hero__cta" href="#nxc-entry" data-nxc-reveal>ACCEPT THE CHALLENGE <span>→</span></a>
       </div>
-
-      <span class="cx-handnote cx-handnote--left" aria-hidden="true">More<br>Life<br>Out Here</span>
-      <span class="cx-handnote cx-handnote--right" aria-hidden="true">Real People.<br>Brighter Stories.</span>
     </section>
 
-    <div id="ChallengeHub" class="cx-tabs-wrap">
-      <div class="cx-tabs" role="tablist" aria-label="Challenge sections">
-        <button class="cx-tab" type="button" role="tab" data-cx-tab="overview" aria-selected="false">OVERVIEW</button>
-        <button class="cx-tab is-active" type="button" role="tab" data-cx-tab="join" aria-selected="true">JOIN</button>
-        <button class="cx-tab" type="button" role="tab" data-cx-tab="activities" aria-selected="false">ACTIVITIES</button>
-        <button class="cx-tab" type="button" role="tab" data-cx-tab="judging" aria-selected="false">JUDGING</button>
-        <button class="cx-tab" type="button" role="tab" data-cx-tab="rules" aria-selected="false">RULES</button>
-      </div>
-    </div>
-
-    <main class="cx-stage">
-      <div class="cx-shell cx-stage__inner">
-        <section class="cx-panel" data-cx-panel="overview" hidden aria-label="Challenge overview">
-          <div class="cx-overview">
-            <div class="cx-overview__card">
-              <p class="cx-kicker">THE ANM’s OUTDOORS CHALLENGE</p>
-              <h2 class="cx-heading">One escape. One story worth remembering.</h2>
-              <p class="cx-lede">We created this challenge for real outdoor memories — first trips, hard climbs, campsite laughs, quiet mornings and everything between. Capture yours, shape it into a short story and share it with us.</p>
-              <div class="cx-overview__stats">
-                <div class="cx-stat"><strong>RM5K</strong><span>GRAND PRIZE</span></div>
-                <div class="cx-stat"><strong>45</strong><span>DAYS</span></div>
-                <div class="cx-stat"><strong>2</strong><span>WAYS TO JOIN</span></div>
-              </div>
-            </div>
-            <div class="cx-cinematic">
-              <div>
-                <h3>Your Adventure.<br>Our Story.</h3>
-                <p>Selected stories may be featured in ANM’s OUTDOORS social content, campaigns and advertising under the permissions in the official Challenge Terms.</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="cx-panel is-active" data-cx-panel="join" aria-label="Join the challenge">
-          <div class="cx-join-grid">
-            <div>
-              <p class="cx-kicker">GET STARTED</p>
-              <h2 class="cx-heading">CHOOSE YOUR PATH</h2>
-              <p class="cx-lede">Same destination. Different paths. Join the ANM’s OUTDOORS Challenge your way and be part of a community that lives for real adventures.</p>
-
-              <div class="cx-paths">
-                <article class="cx-path">
-                  <div class="cx-path__content">
-                    <div class="cx-path__icon" aria-hidden="true">
-                      <svg viewBox="0 0 24 24"><path d="m9 7 8 5-8 5V7Z"/></svg>
-                    </div>
-                    <h3>Adventure Entry <strong>RM150</strong></h3>
-                    <p>Join directly, create your outdoor adventure and submit an edited video story.</p>
-                    <a class="cx-btn cx-btn--gold" href="#cx-rules" data-cx-rules>JOIN WITH RM150 <span aria-hidden="true">→</span></a>
-                  </div>
-                </article>
-
-                <article class="cx-path cx-path--gear">
-                  <div class="cx-path__content">
-                    <div class="cx-path__icon" aria-hidden="true">
-                      <svg viewBox="0 0 24 24"><path d="M3 4h3l2 11h10l2-7H7M10 19h.01M18 19h.01"/></svg>
-                    </div>
-                    <h3>Gear Entry <strong>Spend RM299+</strong></h3>
-                    <p>Challenge entry is included when your qualifying ANM’s OUTDOORS gear purchase reaches RM299 or more.</p>
-                    <a class="cx-btn cx-btn--gold" href="/collections/all">SHOP GEAR &amp; JOIN <span aria-hidden="true">→</span></a>
-                  </div>
-                </article>
-              </div>
-
-              <div class="cx-activity-rail" aria-label="Challenge activity preview">
-                <article class="cx-activity"><div class="cx-activity__label"><svg viewBox="0 0 24 24"><path d="M12 3 3 20h18L12 3Zm0 6v11"/></svg>Camp Setup</div></article>
-                <article class="cx-activity"><div class="cx-activity__label"><svg viewBox="0 0 24 24"><path d="M12 3 4 20h16L12 3ZM8 20l4-8 4 8"/></svg>Hiking</div></article>
-                <article class="cx-activity"><div class="cx-activity__label"><svg viewBox="0 0 24 24"><path d="M5 11h14v3a7 7 0 0 1-14 0v-3ZM9 8c-2-3 2-3 0-6M15 8c-2-3 2-3 0-6"/></svg>Cooking Outdoors</div></article>
-                <article class="cx-activity"><div class="cx-activity__label"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="15" cy="10" r="2"/><path d="m4 18 6-6 3 3 3-3 4 5"/></svg>Nature Moment</div></article>
-                <article class="cx-activity"><div class="cx-activity__label"><svg viewBox="0 0 24 24"><circle cx="8" cy="8" r="3"/><circle cx="16" cy="8" r="3"/><path d="M2 20c1-6 3-9 6-9s5 3 6 9M10 20c1-5 3-8 6-8s5 3 6 8"/></svg>Friends &amp; Family</div></article>
-                <article class="cx-activity"><div class="cx-activity__label"><svg viewBox="0 0 24 24"><path d="M17 4a8 8 0 1 0 3 12 7 7 0 0 1-3-12Z"/></svg>Night Camp</div></article>
-              </div>
-            </div>
-
-            <div>
-              <div class="cx-how">
-                <div class="cx-how__title">HOW IT WORKS</div>
-                <div class="cx-steps">
-                  <div class="cx-step">
-                    <span class="cx-step__num">01</span>
-                    <div class="cx-step__icon"><svg viewBox="0 0 24 24"><path d="M7 3h8l4 4v14H7V3Zm8 0v5h4M10 12h6M10 16h6"/></svg></div>
-                    <strong>JOIN</strong><p>Choose your path and register.</p>
-                  </div>
-                  <div class="cx-step">
-                    <span class="cx-step__num">02</span>
-                    <div class="cx-step__icon"><svg viewBox="0 0 24 24"><path d="M12 3 3 20h18L12 3Zm0 6 4 7-3-2-2 3-2-3-3 2 6-7Z"/></svg></div>
-                    <strong>ADVENTURE</strong><p>Get outside and create real memories.</p>
-                  </div>
-                  <div class="cx-step">
-                    <span class="cx-step__num">03</span>
-                    <div class="cx-step__icon"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="m16 10 5-3v10l-5-3v-4Z"/></svg></div>
-                    <strong>EDIT &amp; SUBMIT</strong><p>Turn your moments into a short video.</p>
-                  </div>
-                  <div class="cx-step">
-                    <span class="cx-step__num">04</span>
-                    <div class="cx-step__icon"><svg viewBox="0 0 24 24"><path d="M7 3h10v5c0 5-2 8-5 9-3-1-5-4-5-9V3ZM7 6H3v2c0 3 2 5 5 5M17 6h4v2c0 3-2 5-5 5M12 17v3M8 21h8"/></svg></div>
-                    <strong>WIN</strong><p>Stand a chance to win RM5,000.</p>
-                  </div>
-                </div>
-              </div>
-
-              <article class="cx-story-card">
-                <div class="cx-story-card__image" aria-hidden="true"></div>
-                <div class="cx-story-card__copy">
-                  <h3>YOUR ADVENTURE. OUR STORY.</h3>
-                  <p>This isn’t just a contest. It’s a celebration of real people and real memories. Selected entries may be featured in ANM’s OUTDOORS campaigns because your story can inspire the next escape.</p>
-                  <span class="cx-story-card__script" aria-hidden="true">Real Adventures.<br>Real People.</span>
-                </div>
-              </article>
-            </div>
-          </div>
-        </section>
-
-        <section class="cx-panel cx-activities-panel" data-cx-panel="activities" hidden aria-label="Challenge activities">
-          <p class="cx-kicker">CAPTURE THE JOURNEY</p>
-          <h2 class="cx-heading">CHALLENGE ACTIVITIES</h2>
-          <p class="cx-activities-copy">Build your entry around real outdoor moments. The final Challenge Brief will confirm the required moments, but this is the spirit we want to see: genuine adventure, people and place.</p>
-          <div class="cx-activity-rail">
-            <article class="cx-activity"><div class="cx-activity__label">△ Camp Setup</div></article>
-            <article class="cx-activity"><div class="cx-activity__label">↗ Hiking</div></article>
-            <article class="cx-activity"><div class="cx-activity__label">♨ Cooking Outdoors</div></article>
-            <article class="cx-activity"><div class="cx-activity__label">◉ Nature Moment</div></article>
-            <article class="cx-activity"><div class="cx-activity__label">● Friends &amp; Family</div></article>
-            <article class="cx-activity"><div class="cx-activity__label">☾ Night Camp</div></article>
-          </div>
-        </section>
-
-        <section class="cx-panel" data-cx-panel="judging" hidden aria-label="Challenge judging">
-          <div class="cx-judging-layout">
-            <div class="cx-judging-card">
-              <p class="cx-kicker">HOW THE WINNER IS CHOSEN</p>
-              <h2 class="cx-heading">MAKE THE STORY MATTER.</h2>
-              <div class="cx-score"><span class="cx-score__dot">01</span><div><strong>Story</strong><br><span>Emotion, clarity and a memorable journey.</span></div><span class="cx-score__pct">30%</span></div>
-              <div class="cx-score"><span class="cx-score__dot">02</span><div><strong>Adventure</strong><br><span>Real outdoor effort, experience and moments.</span></div><span class="cx-score__pct">25%</span></div>
-              <div class="cx-score"><span class="cx-score__dot">03</span><div><strong>Creativity</strong><br><span>How you frame, edit and tell the experience.</span></div><span class="cx-score__pct">25%</span></div>
-              <div class="cx-score"><span class="cx-score__dot">04</span><div><strong>Brand Integration</strong><br><span>Natural use of the official intro and challenge identity.</span></div><span class="cx-score__pct">20%</span></div>
-            </div>
-            <aside class="cx-judging-note">
-              <h3>Not a lucky draw.</h3>
-              <p>The RM5,000 Grand Prize is intended to be awarded through a <strong>skill-based judged challenge</strong>. We’re looking for the strongest story — not the biggest purchase or random chance. Final criteria and eligibility are governed by the official Challenge Terms.</p>
-            </aside>
-          </div>
-        </section>
-
-        <section id="cx-rules" class="cx-panel" data-cx-panel="rules" hidden aria-label="Challenge rules">
-          <div class="cx-rules-layout">
-            <div class="cx-rules-intro">
-              <p class="cx-kicker" style="color:#e9c777">NEED TO KNOW</p>
-              <h2 class="cx-heading" style="color:#fff">Before you enter.</h2>
-              <p>Keep the main experience simple. Open only what you need here. The complete official Challenge Terms will govern all entries before launch.</p>
-            </div>
-            <div class="cx-accordion">
-              <details>
-                <summary>Eligibility</summary>
-                <div class="cx-accordion__body">Entry requirements, age, territory, challenge dates and qualifying purchase conditions will be stated in the official Challenge Terms. Participants must satisfy those requirements before submitting.</div>
-              </details>
-              <details>
-                <summary>Video Rights</summary>
-                <div class="cx-accordion__body">You keep ownership of your original video. By entering, selected participants may grant ANM’s OUTDOORS the permissions described in the official Terms to edit, crop, repost and use submitted content in organic social, campaigns and paid advertising.</div>
-              </details>
-              <details>
-                <summary>How the winner is chosen</summary>
-                <div class="cx-accordion__body">Entries are intended to be judged on Story 30%, Adventure 25%, Creativity 25% and Brand Integration 20%. Final judging mechanics, tie-breaks and verification will be set out in the official Terms.</div>
-              </details>
-              <details>
-                <summary>Full Challenge Rules</summary>
-                <div class="cx-accordion__body">The final official Terms will include entry steps, submission format, dates, disqualification grounds, content permissions, judging, winner verification and prize fulfilment. This preview page is the campaign experience and is not a substitute for the final legal Terms.</div>
-              </details>
-            </div>
-          </div>
-        </section>
-      </div>
-    </main>
-
-    <div class="cx-sticky" aria-label="Join the challenge">
-      <div class="cx-shell cx-sticky__inner">
-        <div class="cx-sticky__brand">
-          <span class="cx-sticky__mountain" aria-hidden="true">⌁</span>
-          <div><strong>RM5,000 CHALLENGE</strong><span>Your Adventure. Our Story.</span></div>
+    <main class="nxc-main">
+      <section id="nxc-story" class="nxc-story nxc-wrap nxc-section">
+        <div class="nxc-story__copy" data-nxc-reveal>
+          <p class="nxc-kicker">REAL PEOPLE. REAL PLACES. REAL STORIES.</p>
+          <h2>Your Adventure.<br>Our Story.</h2>
+          <p class="nxc-copy">ANM’s OUTDOORS Challenge is about celebrating the outdoors — the moments that move us, the memories we keep and the stories that make someone else want to step outside.</p>
+          <div class="nxc-story__note">Made outside.<br>Remembered forever.</div>
         </div>
-        <a class="cx-btn cx-btn--gold" href="#ChallengeHub" data-cx-open="join">JOIN NOW <span aria-hidden="true">→</span></a>
-      </div>
-    </div>
+        <div class="nxc-story__image nxc-media-card" data-nxc-reveal style="background-image:linear-gradient(180deg,transparent,rgba(3,14,10,.28)),url('{{ 'anm-category-gear.webp' | asset_url }}')">
+          <span>GOOD PEOPLE<br>WILD PLACES<br>BETTER STORIES</span>
+        </div>
+      </section>
+
+      <section class="nxc-steps nxc-section">
+        <div class="nxc-wrap">
+          <div class="nxc-sectionhead" data-nxc-reveal>
+            <p class="nxc-kicker">HOW IT WORKS</p>
+            <h2>Four steps. One story.</h2>
+          </div>
+          <div class="nxc-steps__track" data-nxc-steps>
+            <div class="nxc-steps__line"><span></span></div>
+            <article class="nxc-step" data-nxc-reveal><b>01</b><strong>JOIN</strong><p>Choose your entry path.</p></article>
+            <article class="nxc-step" data-nxc-reveal><b>02</b><strong>ADVENTURE</strong><p>Get outside and make it real.</p></article>
+            <article class="nxc-step" data-nxc-reveal><b>03</b><strong>CREATE</strong><p>Shape the journey into a short story.</p></article>
+            <article class="nxc-step" data-nxc-reveal><b>04</b><strong>WIN</strong><p>Stand a chance to win RM5,000.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section id="nxc-entry" class="nxc-entry nxc-wrap nxc-section">
+        <div class="nxc-sectionhead" data-nxc-reveal>
+          <p class="nxc-kicker">CHOOSE YOUR PATH</p>
+          <h2>Same destination. Different way in.</h2>
+        </div>
+        <div class="nxc-entry__grid">
+          <article class="nxc-entrycard" data-nxc-reveal style="--nxc-card:url('{{ 'anm-category-gear.webp' | asset_url }}')">
+            <div class="nxc-entrycard__content">
+              <span class="nxc-entrycard__type">ADVENTURE ENTRY</span>
+              <h3>RM150</h3>
+              <p>For outdoor explorers, storytellers and everyday adventurers who want to join directly.</p>
+              <a href="#nxc-rules">VIEW ENTRY DETAILS <span>→</span></a>
+            </div>
+          </article>
+          <article class="nxc-entrycard" data-nxc-reveal style="--nxc-card:url('{{ 'anm-category-tents.webp' | asset_url }}')">
+            <div class="nxc-entrycard__content">
+              <span class="nxc-entrycard__type">GEAR ENTRY</span>
+              <h3>RM299+</h3>
+              <p>Challenge entry is included with a qualifying ANM’s OUTDOORS gear purchase of RM299 or more.</p>
+              <a href="/collections/all">SHOP GEAR <span>→</span></a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="nxc-gallery nxc-section">
+        <div class="nxc-wrap">
+          <div class="nxc-gallery__head" data-nxc-reveal>
+            <div><p class="nxc-kicker">CAPTURE THE JOURNEY</p><h2>Real Adventures. Real People.</h2></div>
+            <span>SWIPE / EXPLORE →</span>
+          </div>
+          <div class="nxc-film" data-nxc-reveal>
+            <div class="nxc-shot" style="background-image:url('{{ 'anm-category-gear.webp' | asset_url }}')"><span>HIKE</span></div>
+            <div class="nxc-shot" style="background-image:url('{{ 'anm-category-tents.webp' | asset_url }}')"><span>CAMP</span></div>
+            <div class="nxc-shot" style="background-image:url('{{ 'anm-category-kitchen.webp' | asset_url }}')"><span>COOK</span></div>
+            <div class="nxc-shot" style="background-image:url('{{ 'anm-category-furniture.webp' | asset_url }}')"><span>REST</span></div>
+            <div class="nxc-shot" style="background-image:url('{{ 'anm-category-lighting.webp' | asset_url }}')"><span>NIGHT</span></div>
+            <div class="nxc-shot" style="background-image:url('{{ 'anm-campsite.jpg' | asset_url }}')"><span>REMEMBER</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="nxc-rules" class="nxc-rules nxc-wrap nxc-section">
+        <div class="nxc-rules__intro" data-nxc-reveal>
+          <p class="nxc-kicker">RULES &amp; JUDGING</p>
+          <h2>Keep the adventure wild.<br>Keep the rules simple.</h2>
+          <p>Final eligibility, dates and submission requirements are governed by the official Challenge Terms before launch.</p>
+        </div>
+        <div class="nxc-accordion" data-nxc-reveal>
+          <details><summary>How do I join?<span>+</span></summary><p>Choose either the RM150 Adventure Entry or qualify through a RM299+ ANM’s OUTDOORS gear purchase, then follow the official submission brief.</p></details>
+          <details><summary>What should my video show?<span>+</span></summary><p>Real outdoor moments: the journey, the people, the place and your own way of telling the story. The final brief will confirm required moments and format.</p></details>
+          <details><summary>How is the winner chosen?<span>+</span></summary><p>The challenge is intended to be judged on story, adventure, creativity and natural brand integration, subject to the final official terms.</p></details>
+          <details><summary>Can ANM’s OUTDOORS feature my entry?<span>+</span></summary><p>Selected entries may be featured in brand content or campaigns only under the permissions stated in the official Challenge Terms.</p></details>
+        </div>
+      </section>
+
+      <section class="nxc-final">
+        <div class="nxc-final__media" style="background-image:url('{{ 'anm-campsite.jpg' | asset_url }}')" aria-hidden="true"></div>
+        <div class="nxc-final__shade" aria-hidden="true"></div>
+        <div class="nxc-wrap nxc-final__content" data-nxc-reveal>
+          <p class="nxc-kicker">YOUR ADVENTURE. OUR STORY.</p>
+          <h2>Your adventure could<br>be the next story.</h2>
+          <a class="nxc-btn nxc-btn--gold" href="#nxc-entry">JOIN THE CHALLENGE <span>→</span></a>
+        </div>
+      </section>
+    </main>
   </div>
 
   <script src="{{ 'challenge-experience.js' | asset_url }}" defer></script>
