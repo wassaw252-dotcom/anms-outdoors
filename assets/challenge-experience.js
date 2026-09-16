@@ -38,6 +38,12 @@
   if (gearLabel) gearLabel.textContent = 'GEAR ENTRY';
   heroCta?.remove();
 
+  /* Emotional story copy for the campaign. */
+  const storyBody = root.querySelector('.nxc-story__copy .nxc-copy');
+  if (storyBody) {
+    storyBody.innerHTML = '<strong>Sometimes, the moments we remember most happen when life slows down.</strong><br><br>Away from the noise, surrounded by nature, we find time to talk, laugh, reconnect and simply be present with the people who matter most.<br><br>ANM’s OUTDOORS Challenge is an invitation to step outside, make time for each other and capture the moments that deserve to be remembered — a family laugh by the fire, a quiet morning beneath the trees, or an adventure that brings everyone a little closer.<br><br><strong>Because one day, the trip will end.<br>But the feeling, the story and the memories can stay forever.</strong><br><br><strong>Go outside. Be present. Make it a story worth sharing.</strong>';
+  }
+
   /* Keep empty until the owner says: start countdown. */
   const COUNTDOWN_END = '';
   const COUNTDOWN_DAYS = 45;
