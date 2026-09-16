@@ -109,6 +109,7 @@
   const media = root.querySelector('.nxc-hero__media');
   const steps = root.querySelector('[data-nxc-steps]');
   const progress = steps?.querySelector('.nxc-steps__line span');
+  const stepItems = steps ? Array.from(steps.querySelectorAll('.nxc-step')) : [];
   let ticking = false;
 
   const update = () => {
@@ -121,11 +122,16 @@
       media.style.transform = `translate3d(0,${p * 12}px,0) scale(${1 + p * 0.012})`;
     }
 
-    if (steps && progress && window.innerWidth > 900) {
+    if (steps && progress) {
       const r = steps.getBoundingClientRect();
       const vh = window.innerHeight || 1;
-      const p = Math.max(0, Math.min(1, (vh * 0.78 - r.top) / (r.height + vh * 0.35)));
+      const p = Math.max(0, Math.min(1, (vh * 0.8 - r.top) / (r.height + vh * 0.18)));
       progress.style.width = `${p * 100}%`;
+
+      stepItems.forEach((step, index) => {
+        const threshold = (index + 0.35) / stepItems.length;
+        step.classList.toggle('is-progressed', p >= threshold);
+      });
     }
   };
 
