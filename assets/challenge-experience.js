@@ -44,6 +44,13 @@
     storyBody.innerHTML = '<strong>Sometimes, the moments we remember most happen when life slows down.</strong><br><br>Away from the noise, surrounded by nature, we find time to talk, laugh, reconnect and simply be present with the people who matter most.<br><br>ANM’s OUTDOORS Challenge is an invitation to step outside, make time for each other and capture the moments that deserve to be remembered — a family laugh by the fire, a quiet morning beneath the trees, or an adventure that brings everyone a little closer.<br><br><strong>Because one day, the trip will end.<br>But the feeling, the story and the memories can stay forever.</strong><br><br><strong>Go outside. Be present. Make it a story worth sharing.</strong>';
   }
 
+  /* Replace only the story image; keep the existing story text and overlay copy. */
+  const storyImage = root.querySelector('.nxc-story__image');
+  if (storyImage) {
+    storyImage.style.backgroundImage = "linear-gradient(180deg,transparent,rgba(3,14,10,.28)),url('https://cdn.shopify.com/s/files/1/0968/1128/6825/files/anms-your-adventure-story-sunset.jpg?v=1789537027')";
+    storyImage.style.backgroundPosition = 'center';
+  }
+
   /* Keep empty until the owner says: start countdown. */
   const COUNTDOWN_END = '';
   const COUNTDOWN_DAYS = 45;
