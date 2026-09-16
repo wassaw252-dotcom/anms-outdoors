@@ -3,7 +3,7 @@
   if (!root || root.dataset.nxcReady === '1') return;
   root.dataset.nxcReady = '1';
 
-  /* Load the Expedition Pass layer from the same Shopify theme asset path. */
+  /* Load the compact Expedition Pass layer from the same Shopify theme asset path. */
   if (!document.querySelector('link[data-nxc-expedition]')) {
     const script = document.currentScript || document.querySelector('script[src*="challenge-experience.js"]');
     if (script?.src) {
@@ -16,19 +16,18 @@
     }
   }
 
-  /* Use the approved transparent campaign badge; keep the original page layout intact. */
+  /* Approved transparent campaign badge, resized for a tighter mobile hero. */
   const prizeBadge = root.querySelector('.nxc-lockup');
   if (prizeBadge) {
     prizeBadge.src = 'https://cdn.shopify.com/s/files/1/0968/1128/6825/files/anms-challenge-grand-prize-badge.png?v=1789530643';
     prizeBadge.alt = 'Challenge — RM5,000 Grand Prize';
     prizeBadge.width = 2172;
     prizeBadge.height = 724;
-    prizeBadge.style.width = 'min(324px, 56vw)';
+    prizeBadge.style.width = 'min(218px, 56vw)';
     prizeBadge.style.maxWidth = '100%';
-    prizeBadge.style.margin = '-14px auto -2px';
+    prizeBadge.style.margin = '-11px auto -4px';
   }
 
-  /* Upgrade the hero controls into one compact Expedition Pass system. */
   const timer = root.querySelector('[data-nxc-countdown]');
   const entryPass = root.querySelector('.nxc-entrychoices');
   const gearLabel = entryPass?.querySelector('.nxc-entrychoice:last-child .nxc-entrychoice__top');
