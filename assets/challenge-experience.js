@@ -36,10 +36,7 @@
   timer?.classList.add('nxc-expedition-clock');
   entryPass?.classList.add('nxc-expedition-pass');
   if (gearLabel) gearLabel.textContent = 'GEAR ENTRY';
-  if (heroCta) {
-    heroCta.classList.add('nxc-expedition-cta');
-    heroCta.innerHTML = 'JOIN THE CHALLENGE <span>→</span>';
-  }
+  heroCta?.remove();
 
   /* Keep empty until the owner says: start countdown. */
   const COUNTDOWN_END = '';
